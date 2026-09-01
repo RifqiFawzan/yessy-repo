@@ -1,69 +1,118 @@
-import Image from "next/image";
+import Link from "next/link";
+import { Button } from "@/components/ui/button";
+import { ScrollReveal } from "@/components/scroll-reveal";
 
 export default function Home() {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert h-5 w-[100px]"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the{" "}
-            <code className="rounded bg-black/[.06] px-1.5 py-0.5 font-mono text-[0.9em] dark:bg-white/[.08]">
-              page.tsx
-            </code>{" "}
-            file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
+    <div>
+      <section className="relative bg-darkbrown text-cream overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-br from-darkbrown via-brown/80 to-darkbrown opacity-90 animate-hero-bg" />
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-24 md:py-32">
+          <div className="text-center max-w-3xl mx-auto">
+            <p className="text-camel font-medium tracking-[0.2em] uppercase mb-4 text-sm animate-hero-reveal" style={{ animationDelay: "200ms" }}>
+              Seafood &amp; Western Cuisine
+            </p>
+            <h1 className="font-heading text-4xl sm:text-5xl md:text-7xl font-bold mb-6 tracking-tight animate-hero-reveal" style={{ animationDelay: "400ms" }}>
+              Welcome to{" "}
+              <span className="text-camel">Yessy</span>
+            </h1>
+            <p className="text-sand text-base sm:text-lg md:text-xl mb-8 sm:mb-10 leading-relaxed animate-hero-reveal" style={{ animationDelay: "600ms" }}>
+              Two unique locations, two distinct culinary experiences. Discover the flavors that make Yessy special.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center animate-hero-reveal" style={{ animationDelay: "800ms" }}>
+              <Link href="/reservation">
+                <Button size="lg" className="w-full sm:w-auto bg-camel hover:bg-brown text-white px-8 py-3 text-base min-h-[44px] transition-all duration-200 hover:shadow-[0_4px_20px_rgba(176,137,104,0.3)]">
+                  Reserve a Table
+                </Button>
+              </Link>
+              <Link href="/place1">
+                <Button size="lg" variant="outline" className="w-full sm:w-auto border-sand/50 text-brown hover:bg-brown/50 px-8 py-3 text-base min-h-[44px] transition-all duration-200">
+                  Explore Our Places
+                </Button>
+              </Link>
+            </div>
+          </div>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert h-[14px] w-4"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={14}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+      </section>
+
+      <section className="py-12 sm:py-20 bg-background">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <ScrollReveal animation="fade-up" className="text-center mb-10 sm:mb-14">
+            <div className="inline-flex items-center gap-3 mb-4">
+              <span className="block w-12 h-px bg-sand"></span>
+              <span className="text-camel text-sm tracking-widest uppercase">Locations</span>
+              <span className="block w-12 h-px bg-sand"></span>
+            </div>
+            <h2 className="font-heading text-2xl sm:text-3xl md:text-4xl font-bold text-darkbrown mb-4">
+              Our Locations
+            </h2>
+            <p className="text-brown/80 max-w-2xl mx-auto text-sm sm:text-base">
+              Each Yessy location offers a unique atmosphere and menu crafted to delight your senses.
+            </p>
+          </ScrollReveal>
+
+          <div className="grid sm:grid-cols-2 gap-6 sm:gap-8 items-stretch">
+            <ScrollReveal animation="fade-left" delay={100}>
+              <Link href="/place1" className="group flex">
+                <div className="bg-white rounded-2xl overflow-hidden shadow-lg border border-sand/30 hover-lift flex flex-col w-full">
+                  <div className="h-40 sm:h-48 bg-gradient-to-br from-camel to-brown flex items-center justify-center relative shrink-0">
+                    <span className="font-heading text-3xl sm:text-4xl font-bold text-white">Place 1</span>
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
+                  </div>
+                  <div className="p-5 sm:p-6 flex flex-col flex-1">
+                    <h3 className="font-heading text-lg sm:text-xl font-bold text-darkbrown mb-2">Yessy Place 1</h3>
+                    <p className="text-brown/70 text-sm leading-relaxed flex-1">
+                      A cozy fine-dining experience with contemporary cuisine using localngredients.
+                    </p>
+                    <div className="mt-4 text-camel font-medium text-sm group-hover:underline">
+                      View Menu &rarr;
+                    </div>
+                  </div>
+                </div>
+              </Link>
+            </ScrollReveal>
+
+            <ScrollReveal animation="fade-right" delay={200}>
+              <Link href="/place2" className="group flex">
+                <div className="bg-white rounded-2xl overflow-hidden shadow-lg border border-sand/30 hover-lift flex flex-col w-full">
+                  <div className="h-40 sm:h-48 bg-gradient-to-br from-brown to-darkbrown flex items-center justify-center relative shrink-0">
+                    <span className="font-heading text-3xl sm:text-4xl font-bold text-white">Place 2</span>
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
+                  </div>
+                  <div className="p-5 sm:p-6 flex flex-col flex-1">
+                    <h3 className="font-heading text-lg sm:text-xl font-bold text-darkbrown mb-2">Yessy Place 2</h3>
+                    <p className="text-brown/70 text-sm leading-relaxed flex-1">
+                      A relaxed bistro-style setting serving hearty comfort food and artisanal cocktails.
+                    </p>
+                    <div className="mt-4 text-camel font-medium text-sm group-hover:underline">
+                      View Menu &rarr;
+                    </div>
+                  </div>
+                </div>
+              </Link>
+            </ScrollReveal>
+          </div>
         </div>
-      </main>
+      </section>
+
+      <section className="py-12 sm:py-20 bg-darkbrown relative overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-br from-darkbrown via-brown/20 to-darkbrown" />
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <ScrollReveal animation="scale-in">
+            <h2 className="font-heading text-2xl sm:text-3xl md:text-4xl font-bold text-cream mb-4">
+              Ready to Dine?
+            </h2>
+            <p className="text-sand/80 max-w-xl mx-auto mb-6 sm:mb-8 text-sm sm:text-base">
+              Book your table today and experience the warmth of Yessy. We look forward to welcoming you.
+            </p>
+            <Link href="/reservation">
+              <Button size="lg" className="bg-camel hover:bg-brown text-white px-8 sm:px-10 py-3 text-base min-h-[44px] transition-all duration-200 hover:shadow-[0_4px_20px_rgba(176,137,104,0.3)]">
+                Make a Reservation
+              </Button>
+            </Link>
+          </ScrollReveal>
+        </div>
+      </section>
     </div>
   );
 }
