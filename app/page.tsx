@@ -1,12 +1,22 @@
 import Link from "next/link";
+import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { ScrollReveal } from "@/components/scroll-reveal";
+import { ImageMarquee } from "@/components/image-marquee";
 
 export default function Home() {
   return (
     <div>
       <section className="relative bg-darkbrown text-cream overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-darkbrown via-brown/80 to-darkbrown opacity-90 animate-hero-bg" />
+        <Image
+          src="/YESSY-TANJUNGBIAS%20(6%20of%2051).jpg"
+          alt=""
+          fill
+          className="object-cover animate-hero-bg"
+          sizes="100vw"
+          priority
+        />
+        <div className="absolute inset-0 bg-gradient-to-br from-darkbrown via-brown/70 to-darkbrown opacity-85" />
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-24 md:py-32">
           <div className="text-center max-w-3xl mx-auto">
             <p className="text-camel font-medium tracking-[0.2em] uppercase mb-4 text-sm animate-hero-reveal" style={{ animationDelay: "200ms" }}>
@@ -14,7 +24,7 @@ export default function Home() {
             </p>
             <h1 className="font-heading text-4xl sm:text-5xl md:text-7xl font-bold mb-6 tracking-tight animate-hero-reveal" style={{ animationDelay: "400ms" }}>
               Welcome to{" "}
-              <span className="text-camel">Yessy</span>
+              <span className="drop-shadow-[0_2px_8px_rgba(0,0,0,0.4)]">Yessy</span>
             </h1>
             <p className="text-sand text-base sm:text-lg md:text-xl mb-8 sm:mb-10 leading-relaxed animate-hero-reveal" style={{ animationDelay: "600ms" }}>
               Two unique locations, two distinct culinary experiences. Discover the flavors that make Yessy special.
@@ -34,6 +44,8 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      <ImageMarquee />
 
       <section className="py-12 sm:py-20 bg-background">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -73,16 +85,23 @@ export default function Home() {
             </ScrollReveal>
 
             <ScrollReveal animation="fade-right" delay={200}>
-              <Link href="/place2" className="group flex">
+              <Link href="/tanjung-bias" className="group flex">
                 <div className="bg-white rounded-2xl overflow-hidden shadow-lg border border-sand/30 hover-lift flex flex-col w-full">
-                  <div className="h-40 sm:h-48 bg-gradient-to-br from-brown to-darkbrown flex items-center justify-center relative shrink-0">
-                    <span className="font-heading text-3xl sm:text-4xl font-bold text-white">Place 2</span>
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
+                  <div className="h-40 sm:h-48 relative shrink-0 overflow-hidden">
+                    <Image
+                      src="/AMBIENT%20AND%20SPACE%20(5%20of%2084).jpg"
+                      alt="Tanjung Bias ambiance"
+                      fill
+                      className="object-cover transition-transform duration-500 ease-out group-hover:scale-105"
+                      sizes="(max-width: 640px) 100vw, 50vw"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-darkbrown/50 to-transparent" />
+                    <span className="absolute bottom-3 left-4 font-heading text-2xl sm:text-3xl font-bold text-white drop-shadow-lg">Tanjung Bias</span>
                   </div>
                   <div className="p-5 sm:p-6 flex flex-col flex-1">
-                    <h3 className="font-heading text-lg sm:text-xl font-bold text-darkbrown mb-2">Yessy Place 2</h3>
+                    <h3 className="font-heading text-lg sm:text-xl font-bold text-darkbrown mb-2">Yessy Tanjung Bias</h3>
                     <p className="text-brown/70 text-sm leading-relaxed flex-1">
-                      A relaxed bistro-style setting serving hearty comfort food and artisanal cocktails.
+                      A coastal dining retreat with ocean breezes, fresh seafood, and breathtaking views.
                     </p>
                     <div className="mt-4 text-camel font-medium text-sm group-hover:underline">
                       View Menu &rarr;

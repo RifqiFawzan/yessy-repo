@@ -4,8 +4,8 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button";
 
 const places = [
-  { id: "place1", name: "Yessy Place 1", address: "Jl. Sudirman No. 123, Jakarta" },
-  { id: "place2", name: "Yessy Place 2", address: "Jl. Gatot Subroto No. 456, Jakarta" },
+  { id: "place1", name: "Yessy Place 1", address: "Senggigi, Kec. Batu Layar, Kabupaten Lombok Barat, Nusa Tenggara Bar. 83355" },
+  { id: "tanjung-bias", name: "Yessy Tanjung Bias", address: "Tanjung Bias, Batu Layar, Kabupaten Lombok Barat, Nusa Tenggara Bar." },
 ];
 
 const timeSlots = [

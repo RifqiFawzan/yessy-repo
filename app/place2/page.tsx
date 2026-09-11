@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { ScrollReveal } from "@/components/scroll-reveal";
 
@@ -44,6 +45,81 @@ export default function Place2() {
           <p className="text-sand text-base sm:text-lg max-w-2xl mx-auto animate-hero-reveal" style={{ animationDelay: "600ms" }}>
             A relaxed bistro-style atmosphere serving hearty comfort food, juicy burgers, and artisanal drinks.
           </p>
+          <p className="text-sand text-base sm:text-lg mt-4">
+            This is our{" "}
+            <a
+              href="/menu-flipbook"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-block font-bold text-cream underline decoration-camel/50 decoration-2 underline-offset-4 hover:decoration-camel hover:text-camel transition-all duration-200 ease-out"
+            >
+              Menu
+            </a>
+          </p>
+        </div>
+      </section>
+
+      <section className="py-10 sm:py-14 bg-background">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <ScrollReveal animation="fade-up" className="text-center mb-6 sm:mb-10">
+            <h2 className="font-heading text-xl sm:text-2xl md:text-3xl font-bold text-darkbrown mb-2">Our Space</h2>
+            <p className="text-brown/60 text-sm sm:text-base">A glimpse inside Yessy Place 2</p>
+          </ScrollReveal>
+
+          <ScrollReveal animation="scale-in">
+            <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 sm:gap-4">
+              <div className="col-span-2 sm:col-span-2 row-span-2 relative rounded-2xl overflow-hidden aspect-[4/3] sm:aspect-auto sm:h-full group">
+                <Image
+                  src="/cafe1%20(1).jpg"
+                  alt="Yessy Place 2 interior"
+                  fill
+                  className="object-cover transition-transform duration-500 ease-out group-hover:scale-105"
+                  sizes="(max-width: 640px) 100vw, 66vw"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-darkbrown/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+              </div>
+              <div className="relative rounded-2xl overflow-hidden aspect-square group">
+                <Image
+                  src="/cafe1%20(2).jpg"
+                  alt="Yessy Place 2 ambiance"
+                  fill
+                  className="object-cover transition-transform duration-500 ease-out group-hover:scale-105"
+                  sizes="(max-width: 640px) 50vw, 33vw"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-darkbrown/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+              </div>
+              <div className="relative rounded-2xl overflow-hidden aspect-square group">
+                <Image
+                  src="/cafe1%20(3).jpg"
+                  alt="Yessy Place 2 dining area"
+                  fill
+                  className="object-cover transition-transform duration-500 ease-out group-hover:scale-105"
+                  sizes="(max-width: 640px) 50vw, 33vw"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-darkbrown/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+              </div>
+              <div className="relative rounded-2xl overflow-hidden aspect-square group">
+                <Image
+                  src="/cafe1%20(4).jpg"
+                  alt="Yessy Place 2 food presentation"
+                  fill
+                  className="object-cover transition-transform duration-500 ease-out group-hover:scale-105"
+                  sizes="(max-width: 640px) 50vw, 33vw"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-darkbrown/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+              </div>
+              <div className="relative rounded-2xl overflow-hidden aspect-square group">
+                <Image
+                  src="/cafe1%20(5).jpg"
+                  alt="Yessy Place 2 atmosphere"
+                  fill
+                  className="object-cover transition-transform duration-500 ease-out group-hover:scale-105"
+                  sizes="(max-width: 640px) 50vw, 33vw"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-darkbrown/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+              </div>
+            </div>
+          </ScrollReveal>
         </div>
       </section>
 

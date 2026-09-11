@@ -9,7 +9,7 @@ const navLinks = [
   { href: "/", label: "Home" },
   { href: "/about", label: "About" },
   { href: "/place1", label: "Place 1" },
-  { href: "/place2", label: "Place 2" },
+  { href: "/tanjung-bias", label: "Tanjung Bias" },
   { href: "/reservation", label: "Reservation" },
 ];
 

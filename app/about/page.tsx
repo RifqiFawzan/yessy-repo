@@ -177,7 +177,7 @@ export default function About() {
                 </Button>
               </Link>
               <Link href="/place1">
-                <Button size="lg" variant="outline" className="w-full sm:w-auto border-sand/40 text-cream hover:bg-brown/50 px-8 py-3 text-base min-h-[44px] transition-transform duration-150 ease-out hover:scale-[1.02] active:scale-[0.98]">
+                <Button size="lg" variant="outline" className="w-full sm:w-auto border-sand/50 text-brown hover:bg-brown/50 px-8 py-3 text-base min-h-[44px] transition-all duration-200">
                   View Our Menu
                 </Button>
               </Link>
