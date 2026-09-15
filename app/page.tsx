@@ -1,8 +1,9 @@
 import Link from "next/link";
 import Image from "next/image";
-import { Button } from "@/components/ui/button";
-import { ScrollReveal } from "@/components/scroll-reveal";
+import { Button, buttonVariants } from "@/components/ui/button";
 import { ImageMarquee } from "@/components/image-marquee";
+import { ScrollReveal } from "@/components/scroll-reveal";
+import { Testimonials } from "@/components/testimonials";
 
 export default function Home() {
   return (
@@ -14,38 +15,40 @@ export default function Home() {
           fill
           className="object-cover animate-hero-bg"
           sizes="100vw"
+          unoptimized={true}
           priority
         />
         <div className="absolute inset-0 bg-gradient-to-br from-darkbrown via-brown/70 to-darkbrown opacity-85" />
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-24 md:py-32">
           <div className="text-center max-w-3xl mx-auto">
-            <p className="text-camel font-medium tracking-[0.2em] uppercase mb-4 text-sm animate-hero-reveal" style={{ animationDelay: "200ms" }}>
+            <p className="text-sand font-bold tracking-[0.2em] uppercase mb-4 text-sm sm:text-base drop-shadow-[0_2px_6px_rgba(0,0,0,0.9)] animate-hero-reveal" style={{ animationDelay: "200ms" }}>
               Seafood &amp; Western Cuisine
             </p>
-            <h1 className="font-heading text-4xl sm:text-5xl md:text-7xl font-bold mb-6 tracking-tight animate-hero-reveal" style={{ animationDelay: "400ms" }}>
-              Welcome to{" "}
-              <span className="drop-shadow-[0_2px_8px_rgba(0,0,0,0.4)]">Yessy</span>
+            <h1 className="font-heading text-2xl sm:text-3xl md:text-4xl font-bold mb-4 tracking-tight text-cream drop-shadow-[0_4px_12px_rgba(0,0,0,0.9)] animate-hero-reveal" style={{ animationDelay: "400ms" }}>
+              Welcome to YESSY
             </h1>
-            <p className="text-sand text-base sm:text-lg md:text-xl mb-8 sm:mb-10 leading-relaxed animate-hero-reveal" style={{ animationDelay: "600ms" }}>
+            <p className="text-sand font-semibold text-base sm:text-lg md:text-xl mb-8 sm:mb-10 leading-relaxed drop-shadow-[0_2px_8px_rgba(0,0,0,0.9)] animate-hero-reveal" style={{ animationDelay: "600ms" }}>
               Two unique locations, two distinct culinary experiences. Discover the flavors that make Yessy special.
             </p>
             <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center animate-hero-reveal" style={{ animationDelay: "800ms" }}>
-              <Link href="/reservation">
-                <Button size="lg" className="w-full sm:w-auto bg-camel hover:bg-brown text-white px-8 py-3 text-base min-h-[44px] transition-all duration-200 hover:shadow-[0_4px_20px_rgba(176,137,104,0.3)]">
-                  Reserve a Table
-                </Button>
+              <Link 
+                href="/reservation"
+                className={buttonVariants({ size: "lg", className: "w-full sm:w-auto bg-camel hover:bg-brown text-white px-8 py-3 text-base min-h-[44px] transition-all duration-200 hover:shadow-[0_4px_20px_rgba(176,137,104,0.3)]" })}
+              >
+                Reserve a Table
               </Link>
-              <Link href="/place1">
-                <Button size="lg" variant="outline" className="w-full sm:w-auto border-sand/50 text-brown hover:bg-brown/50 px-8 py-3 text-base min-h-[44px] transition-all duration-200">
-                  Explore Our Places
-                </Button>
+              <Link 
+                href="/senggigi"
+                className={buttonVariants({ variant: "outline", size: "lg", className: "w-full sm:w-auto border-sand/50 text-brown hover:bg-brown/50 px-8 py-3 text-base min-h-[44px] transition-all duration-200" })}
+              >
+                Explore Our Places
               </Link>
             </div>
           </div>
         </div>
       </section>
 
-      <ImageMarquee />
+      {/* <ImageMarquee /> */}
 
       <section className="py-12 sm:py-20 bg-background">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -63,21 +66,27 @@ export default function Home() {
             </p>
           </ScrollReveal>
 
-          <div className="grid sm:grid-cols-2 gap-6 sm:gap-8 items-stretch">
+          <div className="grid sm:grid-cols-2 gap-6 sm:gap-8">
             <ScrollReveal animation="fade-left" delay={100}>
-              <Link href="/place1" className="group flex">
-                <div className="bg-white rounded-2xl overflow-hidden shadow-lg border border-sand/30 hover-lift flex flex-col w-full">
-                  <div className="h-40 sm:h-48 bg-gradient-to-br from-camel to-brown flex items-center justify-center relative shrink-0">
-                    <span className="font-heading text-3xl sm:text-4xl font-bold text-white">Place 1</span>
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
-                  </div>
-                  <div className="p-5 sm:p-6 flex flex-col flex-1">
-                    <h3 className="font-heading text-lg sm:text-xl font-bold text-darkbrown mb-2">Yessy Place 1</h3>
-                    <p className="text-brown/70 text-sm leading-relaxed flex-1">
-                      A cozy fine-dining experience with contemporary cuisine using localngredients.
+              <Link href="/senggigi" className="block">
+                <div className="group relative rounded-2xl overflow-hidden aspect-[4/3] bg-brown border border-sand/20 hover-lift">
+                  <Image
+                    src="/AMBIENT%20AND%20SPACE%20(17%20of%2084).jpg"
+                    alt="Senggigi ambiance"
+                    fill
+                    className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+                    sizes="(max-width: 640px) 100vw, 50vw"
+                    unoptimized={true}
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-darkbrown/90 via-darkbrown/30 to-transparent transition-opacity duration-300 group-hover:opacity-90" />
+                  <div className="absolute inset-0 p-6 sm:p-8 flex flex-col justify-end">
+                    <span className="inline-block bg-camel/90 text-white text-xs font-bold tracking-widest uppercase px-3 py-1 rounded-full mb-3 w-fit">Fine Dining</span>
+                    <h3 className="font-heading text-2xl sm:text-3xl font-bold text-white mb-2">Yessy Senggigi</h3>
+                    <p className="text-sand/90 text-sm leading-relaxed max-w-sm mb-4">
+                      A cozy fine-dining experience with contemporary cuisine using local ingredients.
                     </p>
-                    <div className="mt-4 text-camel font-medium text-sm group-hover:underline">
-                      View Menu &rarr;
+                    <div className="text-camel font-bold text-sm group-hover:text-white transition-colors">
+                      View Location &rarr;
                     </div>
                   </div>
                 </div>
@@ -85,26 +94,25 @@ export default function Home() {
             </ScrollReveal>
 
             <ScrollReveal animation="fade-right" delay={200}>
-              <Link href="/tanjung-bias" className="group flex">
-                <div className="bg-white rounded-2xl overflow-hidden shadow-lg border border-sand/30 hover-lift flex flex-col w-full">
-                  <div className="h-40 sm:h-48 relative shrink-0 overflow-hidden">
-                    <Image
-                      src="/AMBIENT%20AND%20SPACE%20(5%20of%2084).jpg"
-                      alt="Tanjung Bias ambiance"
-                      fill
-                      className="object-cover transition-transform duration-500 ease-out group-hover:scale-105"
-                      sizes="(max-width: 640px) 100vw, 50vw"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-darkbrown/50 to-transparent" />
-                    <span className="absolute bottom-3 left-4 font-heading text-2xl sm:text-3xl font-bold text-white drop-shadow-lg">Tanjung Bias</span>
-                  </div>
-                  <div className="p-5 sm:p-6 flex flex-col flex-1">
-                    <h3 className="font-heading text-lg sm:text-xl font-bold text-darkbrown mb-2">Yessy Tanjung Bias</h3>
-                    <p className="text-brown/70 text-sm leading-relaxed flex-1">
+              <Link href="/tanjung-bias" className="block">
+                <div className="group relative rounded-2xl overflow-hidden aspect-[4/3] bg-brown border border-sand/20 hover-lift">
+                  <Image
+                    src="/AMBIENT%20AND%20SPACE%20(14%20of%2084).jpg"
+                    alt="Tanjung Bias ambiance"
+                    fill
+                    className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+                    sizes="(max-width: 640px) 100vw, 50vw"
+                    unoptimized={true}
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-darkbrown/90 via-darkbrown/30 to-transparent transition-opacity duration-300 group-hover:opacity-90" />
+                  <div className="absolute inset-0 p-6 sm:p-8 flex flex-col justify-end">
+                    <span className="inline-block bg-darkbrown/90 text-cream text-xs font-bold tracking-widest uppercase px-3 py-1 rounded-full mb-3 w-fit border border-cream/20">Seafood</span>
+                    <h3 className="font-heading text-2xl sm:text-3xl font-bold text-white mb-2">Yessy Tanjung Bias</h3>
+                    <p className="text-sand/90 text-sm leading-relaxed max-w-sm mb-4">
                       A coastal dining retreat with ocean breezes, fresh seafood, and breathtaking views.
                     </p>
-                    <div className="mt-4 text-camel font-medium text-sm group-hover:underline">
-                      View Menu &rarr;
+                    <div className="text-camel font-bold text-sm group-hover:text-white transition-colors">
+                      View Location &rarr;
                     </div>
                   </div>
                 </div>
@@ -113,6 +121,8 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      <Testimonials />
 
       <section className="py-12 sm:py-20 bg-darkbrown relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-darkbrown via-brown/20 to-darkbrown" />
@@ -124,10 +134,11 @@ export default function Home() {
             <p className="text-sand/80 max-w-xl mx-auto mb-6 sm:mb-8 text-sm sm:text-base">
               Book your table today and experience the warmth of Yessy. We look forward to welcoming you.
             </p>
-            <Link href="/reservation">
-              <Button size="lg" className="bg-camel hover:bg-brown text-white px-8 sm:px-10 py-3 text-base min-h-[44px] transition-all duration-200 hover:shadow-[0_4px_20px_rgba(176,137,104,0.3)]">
-                Make a Reservation
-              </Button>
+            <Link 
+              href="/reservation"
+              className={buttonVariants({ size: "lg", className: "bg-camel hover:bg-brown text-white px-8 sm:px-10 py-3 text-base min-h-[44px] transition-all duration-200 hover:shadow-[0_4px_20px_rgba(176,137,104,0.3)]" })}
+            >
+              Make a Reservation
             </Link>
           </ScrollReveal>
         </div>

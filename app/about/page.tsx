@@ -1,12 +1,12 @@
 import Link from "next/link";
-import { Button } from "@/components/ui/button";
+import { Button, buttonVariants } from "@/components/ui/button";
 import { ScrollReveal } from "@/components/scroll-reveal";
 
 const milestones = [
   { year: "2005", title: "Grand Opening", description: "Yessy Restaurant opened its doors for the first time in Senggigi, Lombok, serving fresh seafood and Western classics." },
-  { year: "2010", title: "Second Location", description: "Expanded to a second location on Jl. Nelayan, bringing our signature dishes to a wider audience." },
-  { year: "2015", title: "Award Winning", description: "Recognized as one of the top dining experiences in Lombok by international food critics." },
-  { year: "2020", title: "Modern Revamp", description: "Refreshed our menu and ambiance while staying true to the flavors that made us beloved." },
+  { year: "2019", title: "Second Location", description: "Expanded to a second location on Jl. Nelayan, bringing our signature dishes to a wider audience." },
+  { year: "2020", title: "Award Winning", description: "Recognized as one of the top dining experiences in Lombok by international food critics." },
+  { year: "2025", title: "Modern Revamp", description: "Refreshed our menu and ambiance while staying true to the flavors that made us beloved." },
   { year: "Today", title: "Continuing Legacy", description: "Over 20 years of serving exceptional seafood and Western cuisine with warmth and passion." },
 ];
 
@@ -171,15 +171,17 @@ export default function About() {
               Join us at Yessy and experience over 20 years of culinary passion. We look forward to welcoming you.
             </p>
             <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center">
-              <Link href="/reservation">
-                <Button size="lg" className="w-full sm:w-auto bg-camel hover:bg-brown text-white px-8 py-3 text-base min-h-[44px] transition-transform duration-150 ease-out hover:scale-[1.02] active:scale-[0.98]">
-                  Make a Reservation
-                </Button>
+              <Link 
+                href="/reservation"
+                className={buttonVariants({ size: "lg", className: "w-full sm:w-auto bg-camel hover:bg-brown text-white px-8 py-3 text-base min-h-[44px] transition-transform duration-150 ease-out hover:scale-[1.02] active:scale-[0.98]" })}
+              >
+                Make a Reservation
               </Link>
-              <Link href="/place1">
-                <Button size="lg" variant="outline" className="w-full sm:w-auto border-sand/50 text-brown hover:bg-brown/50 px-8 py-3 text-base min-h-[44px] transition-all duration-200">
-                  View Our Menu
-                </Button>
+              <Link 
+                href="/senggigi"
+                className={buttonVariants({ variant: "outline", size: "lg", className: "w-full sm:w-auto border-sand/50 text-brown hover:bg-brown/50 px-8 py-3 text-base min-h-[44px] transition-all duration-200" })}
+              >
+                View Our Menu
               </Link>
             </div>
           </ScrollReveal>

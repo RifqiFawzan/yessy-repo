@@ -1,6 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
-import { Button } from "@/components/ui/button";
+import { Button, buttonVariants } from "@/components/ui/button";
 import { ScrollReveal } from "@/components/scroll-reveal";
 
 const menu = {
@@ -150,10 +150,11 @@ export default function Place2() {
           </div>
 
           <ScrollReveal animation="scale-in" className="mt-10 sm:mt-14 text-center">
-            <Link href="/reservation">
-              <Button size="lg" className="bg-camel hover:bg-brown text-white px-8 sm:px-10 py-3 text-base min-h-[44px] transition-transform duration-150 ease-out hover:scale-[1.02] active:scale-[0.98]">
-                Reserve at Place 2
-              </Button>
+            <Link 
+              href="/reservation"
+              className={buttonVariants({ size: "lg", className: "bg-camel hover:bg-brown text-white px-8 sm:px-10 py-3 text-base min-h-[44px] transition-transform duration-150 ease-out hover:scale-[1.02] active:scale-[0.98]" })}
+            >
+              Reserve at Place 2
             </Link>
           </ScrollReveal>
         </div>

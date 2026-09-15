@@ -2,31 +2,30 @@ import Link from "next/link";
 import Image from "next/image";
 import { Button, buttonVariants } from "@/components/ui/button";
 import { ScrollReveal } from "@/components/scroll-reveal";
-import { AmbientCarousel } from "@/components/ambient-carousel";
-import { MenuCarousel } from "@/components/menu-carousel";
+import { AmbientCarouselSenggigi } from "@/components/ambient-carousel-senggigi";
 
 const bestSellers = [
-  { name: "King Prawn", image: "/King Prawn.jpg", price: "IDR 150k" },
-  { name: "Grill Fish", image: "/Grill fish.jpg", price: "IDR 120k" },
-  { name: "Grill Squid", image: "/Grill Squid.jpg", price: "IDR 95k" },
-  { name: "Mix Seafood", image: "/MIXseafood.jpg", price: "IDR 250k" },
+  { name: "Wagyu Beef Steak", image: "/cafe1 (1).jpg", price: "IDR 350k" },
+  { name: "Pan-Seared Salmon", image: "/cafe1 (2).jpg", price: "IDR 225k" },
+  { name: "Herb Roasted Chicken", image: "/cafe1 (3).jpg", price: "IDR 175k" },
+  { name: "Wild Mushroom Risotto", image: "/cafe1 (4).jpg", price: "IDR 145k" },
 ];
 
-export default function TanjungBias() {
+export default function Place1() {
   return (
     <div>
       <section className="bg-gradient-to-br from-brown via-darkbrown to-brown text-cream py-16 sm:py-20 relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-brown via-darkbrown to-brown animate-hero-bg" />
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <p className="text-camel font-medium tracking-widest uppercase mb-3 text-sm animate-hero-reveal" style={{ animationDelay: "200ms" }}>Coastal Dining Experience</p>
-          <h1 className="font-heading text-3xl sm:text-4xl md:text-5xl font-bold mb-4 animate-hero-reveal" style={{ animationDelay: "400ms" }}>Yessy Tanjung Bias</h1>
+          <p className="text-camel font-medium tracking-widest uppercase mb-3 text-sm animate-hero-reveal" style={{ animationDelay: "200ms" }}>Fine Dining Experience</p>
+          <h1 className="font-heading text-3xl sm:text-4xl md:text-5xl font-bold mb-4 animate-hero-reveal" style={{ animationDelay: "400ms" }}>Yessy Senggigi</h1>
           <p className="text-sand text-base sm:text-lg max-w-2xl mx-auto animate-hero-reveal" style={{ animationDelay: "600ms" }}>
-            Where the ocean breeze meets exquisite flavors. A coastal retreat offering fresh seafood and western cuisine with breathtaking views.
+            Fine dining with a contemporary twist. Every dish is a masterpiece crafted from the freshest local ingredients.
           </p>
           <p className="text-sand text-base sm:text-lg mt-4">
             This is our{" "}
             <a
-              href="/menu-flipbook-2"
+              href="/menu-flipbook?location=place1"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-block font-bold text-cream underline decoration-camel/50 decoration-2 underline-offset-4 hover:decoration-camel hover:text-camel transition-all duration-200 ease-out"
@@ -41,27 +40,14 @@ export default function TanjungBias() {
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <ScrollReveal animation="fade-up" className="text-center mb-6 sm:mb-8">
             <h2 className="font-heading text-xl sm:text-2xl md:text-3xl font-bold text-darkbrown mb-2">The Ambiance</h2>
-            <p className="text-brown/60 text-sm sm:text-base">A glimpse inside Yessy Tanjung Bias</p>
+            <p className="text-brown/60 text-sm sm:text-base">A glimpse inside Yessy Senggigi</p>
           </ScrollReveal>
 
           <ScrollReveal animation="scale-in">
-            <AmbientCarousel />
+            <AmbientCarouselSenggigi />
           </ScrollReveal>
         </div>
       </section>
-
-      {/* <section className="py-12 sm:py-16 bg-background">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <ScrollReveal animation="fade-up" className="text-center mb-8 sm:mb-10">
-            <h2 className="font-heading text-xl sm:text-2xl md:text-3xl font-bold text-darkbrown mb-2">Signature Grills</h2>
-            <p className="text-brown/60 text-sm sm:text-base">Fresh from the ocean, grilled to perfection</p>
-          </ScrollReveal>
-
-          <ScrollReveal animation="scale-in">
-            <MenuCarousel />
-          </ScrollReveal>
-        </div>
-      </section> */}
 
       <section className="py-16 sm:py-20 bg-darkbrown text-cream">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -111,7 +97,7 @@ export default function TanjungBias() {
               href="/reservation"
               className={buttonVariants({ size: "lg", className: "bg-camel hover:bg-brown text-white px-8 sm:px-10 py-3 text-base min-h-[44px] transition-transform duration-150 ease-out hover:scale-[1.02] active:scale-[0.98]" })}
             >
-              Reserve at Tanjung Bias
+              Reserve at Senggigi
             </Link>
           </ScrollReveal>
         </div>
@@ -130,7 +116,7 @@ export default function TanjungBias() {
             </div>
             <h2 className="font-heading text-2xl sm:text-3xl md:text-4xl font-bold text-darkbrown mb-3">Visit Us</h2>
             <p className="text-brown/70 max-w-lg mx-auto leading-relaxed text-sm sm:text-base">
-              Tanjung Bias, Batu Layar, West Lombok, West Nusa Tenggara
+              Senggigi, Kec. Batu Layar, Kabupaten Lombok Barat, Nusa Tenggara Bar. 83355
             </p>
           </ScrollReveal>
 
@@ -138,14 +124,14 @@ export default function TanjungBias() {
             <div className="bg-white rounded-3xl p-3 shadow-[0_4px_24px_rgba(122,85,58,0.08)] border border-sand/30">
               <div className="rounded-2xl overflow-hidden">
                 <iframe
-                  src="https://maps.google.com/maps?q=Tanjung+Bias,+Batu+Layar,+Kabupaten+Lombok+Barat,+Nusa+Tenggara+Bar.&t=&z=15&ie=UTF8&iwloc=&output=embed"
+                  src="https://maps.google.com/maps?q=Yessy+Cafe+Senggigi,+Senggigi,+Kec.+Batu+Layar,+Kabupaten+Lombok+Barat,+Nusa+Tenggara+Bar.+83355&t=&z=15&ie=UTF8&iwloc=&output=embed"
                   width="100%"
                   height="420"
                   style={{ border: 0 }}
                   allowFullScreen
                   loading="lazy"
                   referrerPolicy="no-referrer-when-downgrade"
-                  title="Yessy Tanjung Bias Location"
+                  title="Yessy Senggigi Location"
                 />
               </div>
             </div>
@@ -153,7 +139,7 @@ export default function TanjungBias() {
 
           <ScrollReveal animation="fade-up" delay={300} className="mt-6 sm:mt-8 text-center">
             <a
-              href="https://www.google.com/maps?q=Tanjung+Bias,+Batu+Layar,+Kabupaten+Lombok+Barat,+Nusa+Tenggara+Bar."
+              href="https://www.google.com/maps?q=Yessy+Cafe+Senggigi,+Senggigi,+Kec.+Batu+Layar,+Kabupaten+Lombok+Barat,+Nusa+Tenggara+Bar.+83355"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2.5 bg-darkbrown hover:bg-brown text-cream px-7 py-3.5 rounded-full font-medium transition-all duration-300 shadow-[0_2px_12px_rgba(59,42,34,0.15)] hover:shadow-[0_4px_20px_rgba(59,42,34,0.25)] hover:-translate-y-0.5"

@@ -25,6 +25,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
       lang="en"
+      data-scroll-behavior="smooth"
       className={cn("h-full", "antialiased", karla.variable, playfair.variable, geistMono.variable, "font-sans")}
     >
       <body className="min-h-full flex flex-col grain-overlay animate-page-load">
