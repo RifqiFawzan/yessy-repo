@@ -57,7 +57,7 @@ export function Navbar() {
           <div className="w-auto lg:w-1/3 flex justify-start">
             <Link href="/" className="flex items-center gap-2 drop-shadow-sm">
               <Image
-                src="/Yessy logo trans.png"
+                src="/logo trnz.png"
                 alt="Yessy Logo"
                 width={130}
                 height={52}
