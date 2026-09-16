@@ -6,10 +6,10 @@ import { AmbientCarousel } from "@/components/ambient-carousel";
 import { MenuCarousel } from "@/components/menu-carousel";
 
 const bestSellers = [
-  { name: "King Prawn", image: "/King Prawn.jpg", price: "IDR 150k" },
-  { name: "Grill Fish", image: "/Grill fish.jpg", price: "IDR 120k" },
-  { name: "Grill Squid", image: "/Grill Squid.jpg", price: "IDR 95k" },
-  { name: "Mix Seafood", image: "/MIXseafood.jpg", price: "IDR 250k" },
+  { name: "King Prawn", image: "/King Prawn.jpg", price: "IDR 350k" },
+  { name: "Grill Fish", image: "/Grill fish.jpg", price: "IDR k" },
+  { name: "Grill Squid", image: "/Grill Squid.jpg", price: "IDR 350k" },
+  { name: "Mix Seafood", image: "/MIXseafood.jpg", price: "IDR 550k" },
 ];
 
 export default function TanjungBias() {

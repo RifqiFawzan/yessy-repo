@@ -1,17 +1,10 @@
 "use client";
 
-import { useState, useCallback, useRef, useMemo } from "react";
-import dynamic from "next/dynamic";
+import { useState, useMemo } from "react";
 import Link from "next/link";
+import Image from "next/image";
 
-const HTMLFlipBook = dynamic(() => import("react-pageflip"), {
-  ssr: false,
-  loading: () => (
-    <div className="flex items-center justify-center h-[500px]">
-      <p className="text-darkbrown text-lg font-medium">Loading menu...</p>
-    </div>
-  ),
-});
+
 
 export interface MenuItem {
   name: string;
@@ -50,11 +43,12 @@ function MenuPage({
       <div className="page-items">
         {items.map((item) => (
           <div key={item.name} className="page-menu-item">
-            <div className="page-item-info">
+            <div className="page-item-header">
               <h3 className="page-item-name">{item.name}</h3>
-              <p className="page-item-desc">{item.description}</p>
+              <div className="page-item-dots" />
+              <span className="page-item-price">{item.price}</span>
             </div>
-            <span className="page-item-price">{item.price}</span>
+            <p className="page-item-desc">{item.description}</p>
           </div>
         ))}
       </div>
@@ -63,20 +57,17 @@ function MenuPage({
 }
 
 export function MenuFlipbook({ menuData, locationName, coverSubtitle, backCoverLocation, bgColor = "bg-background" }: MenuFlipbookProps) {
-  const [currentPage, setCurrentPage] = useState(0);
-  const flipBookRef = useRef<React.ComponentRef<typeof HTMLFlipBook>>(null);
-
   const pages = useMemo(() => {
     const result: { type: "cover" | "menu" | "backcover"; category?: string; items?: MenuItem[]; pageNumber?: number }[] = [
       { type: "cover" },
     ];
     let pageNum = 2;
     for (const section of menuData) {
-      for (let i = 0; i < section.items.length; i += 3) {
+      for (let i = 0; i < section.items.length; i += 6) {
         result.push({
           type: "menu",
           category: section.category,
-          items: section.items.slice(i, i + 3),
+          items: section.items.slice(i, i + 6),
           pageNumber: pageNum++,
         });
       }
@@ -86,17 +77,18 @@ export function MenuFlipbook({ menuData, locationName, coverSubtitle, backCoverL
   }, [menuData]);
 
   const totalPages = pages.length;
-
-  const onFlip = useCallback((e: { data: number }) => {
-    setCurrentPage(e.data);
-  }, []);
+  const [currentPage, setCurrentPage] = useState(0);
 
   const goToNext = () => {
-    flipBookRef.current?.pageFlip().flipNext();
+    if (currentPage < totalPages - 1) {
+      setCurrentPage((prev) => prev + 1);
+    }
   };
 
   const goToPrev = () => {
-    flipBookRef.current?.pageFlip().flipPrev();
+    if (currentPage > 0) {
+      setCurrentPage((prev) => prev - 1);
+    }
   };
 
   return (
@@ -106,72 +98,71 @@ export function MenuFlipbook({ menuData, locationName, coverSubtitle, backCoverL
           Yessy {locationName}
         </h1>
         <p className="text-brown/70 text-sm sm:text-base">
-          Swipe or drag the corner to flip pages
+          Use the buttons below to navigate pages
         </p>
       </div>
 
-      <div className="flipbook-container">
-        <HTMLFlipBook
-          ref={flipBookRef}
-          width={380}
-          height={530}
-          size="stretch"
-          minWidth={300}
-          maxWidth={700}
-          minHeight={420}
-          maxHeight={700}
-          drawShadow={true}
-          flippingTime={600}
-          usePortrait={true}
-          startZIndex={0}
-          autoSize={true}
-          startPage={0}
-          maxShadowOpacity={0.5}
-          showCover={true}
-          mobileScrollSupport={true}
-          clickEventForward={true}
-          useMouseEvents={true}
-          swipeDistance={30}
-          showPageCorners={true}
-          disableFlipByClick={false}
-          onFlip={onFlip}
-          onChangeOrientation={onFlip}
-          onChangeState={onFlip}
-          style={{}}
-          className="flipbook"
-        >
-          {pages.map((page, index) => (
-            <div key={index} className="flipbook-page">
-              {page.type === "cover" ? (
-                <div className="flipbook-cover">
-                  <div className="cover-content">
-                    <div className="cover-decoration">✦</div>
-                    <h2 className="cover-title">Yessy</h2>
-                    <p className="cover-subtitle">{coverSubtitle}</p>
-                    <div className="cover-line" />
-                    <p className="cover-tagline">Est. 2005</p>
+      <div className="relative w-full max-w-[380px] h-[530px] mx-auto" style={{ perspective: "1000px" }}>
+        <div className="relative w-full h-full">
+          {pages.map((page, index) => {
+            const isCurrent = index === currentPage;
+            const isBefore = index < currentPage;
+            
+            return (
+              <div 
+                key={index} 
+                className="absolute inset-0 w-full h-full rounded-md shadow-[0_12px_40px_rgba(59,42,34,0.15)] overflow-hidden transition-all duration-700 ease-[cubic-bezier(0.23,1,0.32,1)]"
+                style={{
+                  opacity: isCurrent ? 1 : 0,
+                  transform: isCurrent 
+                    ? "translateX(0) rotateY(0deg) rotateZ(0deg) scale(1)" 
+                    : isBefore
+                      ? "translateX(-60%) rotateY(-10deg) rotateZ(-5deg) scale(0.9)"
+                      : "translateX(60%) rotateY(10deg) rotateZ(5deg) scale(0.9)",
+                  zIndex: isCurrent ? 10 : 0,
+                  pointerEvents: isCurrent ? "auto" : "none",
+                }}
+              >
+                {page.type === "cover" ? (
+                  <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-[#3b2a22] via-[#7a553a] to-[#3b2a22]">
+                    <div className="text-center text-[#f3e9d7] flex flex-col items-center px-6">
+                      <div className="relative w-56 h-56 mb-4">
+                        <Image
+                          src="/logo trnz.png"
+                          alt="Yessy Logo"
+                          fill
+                          className="object-contain"
+                          unoptimized={true}
+                        />
+                      </div>
+                      <p className="text-base text-[#d6bfa6] tracking-widest uppercase">{coverSubtitle}</p>
+                      <div className="w-12 h-[2px] bg-[#b08968] mx-auto my-6" />
+                      <p className="text-sm text-[#b08968] tracking-widest uppercase">Est. 2005</p>
+                    </div>
                   </div>
-                </div>
-              ) : page.type === "backcover" ? (
-                <div className="flipbook-backcover">
-                  <div className="cover-content">
-                    <div className="cover-decoration">✦</div>
-                    <h2 className="cover-title">Thank You</h2>
-                    <p className="cover-subtitle">for dining with us</p>
-                    <div className="cover-line" />
-                    <p className="cover-tagline">{backCoverLocation}</p>
+                ) : page.type === "backcover" ? (
+                  <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-[#3b2a22] via-[#7a553a] to-[#3b2a22]">
+                    <div className="text-center text-[#f3e9d7]">
+                      <div className="text-3xl text-[#b08968] mb-4">✦</div>
+                      <h2 className="font-heading text-3xl font-bold tracking-wider mb-2">Thank You</h2>
+                      <p className="text-sm text-[#d6bfa6] tracking-widest uppercase">for dining with us</p>
+                      <div className="w-12 h-[2px] bg-[#b08968] mx-auto my-6" />
+                      <p className="text-sm text-[#b08968] tracking-widest uppercase">{backCoverLocation}</p>
+                    </div>
                   </div>
-                </div>
-              ) : (
-                <MenuPage
-                  category={page.category!}
-                  items={page.items!}
-                  pageNumber={page.pageNumber!}
-                />
-              )}
-            </div>
-          ))}
-        </HTMLFlipBook>
+                ) : (
+                  <div className="w-full h-full bg-gradient-to-br from-[#fdf8f0] to-[#f5ebe0]">
+                    <MenuPage
+                      category={page.category!}
+                      items={page.items!}
+                      pageNumber={page.pageNumber!}
+                    />
+                  </div>
+                )}
+              </div>
+            );
+          })}
+        </div>
       </div>
 
       <div className="flex items-center gap-4 mt-6 sm:mt-8">
