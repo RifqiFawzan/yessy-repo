@@ -26,9 +26,9 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
     <html
       lang="en"
       data-scroll-behavior="smooth"
-      className={cn("h-full", "antialiased", karla.variable, playfair.variable, geistMono.variable, "font-sans")}
+      className={cn("h-full max-w-[100vw] overflow-x-hidden", "antialiased", karla.variable, playfair.variable, geistMono.variable, "font-sans")}
     >
-      <body className="min-h-full flex flex-col grain-overlay animate-page-load">
+      <body className="min-h-full flex flex-col grain-overlay animate-page-load max-w-[100vw] overflow-x-hidden">
         <Navbar />
         <main className="flex-1">
           <PageTransition>{children}</PageTransition>

@@ -43,12 +43,14 @@ function MenuPage({
       <div className="page-items">
         {items.map((item) => (
           <div key={item.name} className="page-menu-item">
-            <div className="page-item-header">
-              <h3 className="page-item-name">{item.name}</h3>
-              <div className="page-item-dots" />
-              <span className="page-item-price">{item.price}</span>
+            <div className="page-item-info">
+              <div className="page-item-header">
+                <h3 className="page-item-name">{item.name}</h3>
+                <div className="page-item-dots" />
+                <span className="page-item-price">{item.price}</span>
+              </div>
+              <p className="page-item-desc">{item.description}</p>
             </div>
-            <p className="page-item-desc">{item.description}</p>
           </div>
         ))}
       </div>
@@ -131,7 +133,7 @@ export function MenuFlipbook({ menuData, locationName, coverSubtitle, backCoverL
                           src="/logo trnz.png"
                           alt="Yessy Logo"
                           fill
-                          className="object-contain"
+                          className="object-contain drop-shadow-xl"
                           unoptimized={true}
                         />
                       </div>

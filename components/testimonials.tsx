@@ -1,3 +1,6 @@
+"use client";
+
+import { useState } from "react";
 import { cn } from "@/lib/utils";
 
 const reviews = [
@@ -58,6 +61,8 @@ function StarRating() {
 }
 
 export function Testimonials() {
+  const [expandedId, setExpandedId] = useState<number | null>(null);
+
   return (
     <section className="py-16 sm:py-24 bg-background relative overflow-hidden">
       <div className="absolute inset-0 bg-gradient-to-b from-transparent to-brown/5 pointer-events-none" />
@@ -81,7 +86,8 @@ export function Testimonials() {
           {reviews.map((review) => (
             <div 
               key={review.id} 
-              className="bg-white rounded-2xl p-6 sm:p-8 shadow-sm border border-sand/20 transition-all duration-300 hover:-translate-y-1.5 hover:shadow-xl group flex flex-col h-full"
+              onClick={() => setExpandedId(expandedId === review.id ? null : review.id)}
+              className="bg-white rounded-2xl p-6 sm:p-8 shadow-sm border border-sand/20 transition-all duration-300 hover:-translate-y-1.5 hover:shadow-xl group flex flex-col h-full cursor-pointer"
             >
               <div className="flex items-start justify-between mb-4">
                 <StarRating />
@@ -95,7 +101,10 @@ export function Testimonials() {
                 </span>
               </div>
               
-              <p className="text-darkbrown/80 text-sm sm:text-base leading-relaxed italic mb-6 flex-1 line-clamp-4 group-hover:line-clamp-none transition-all">
+              <p className={cn(
+                "text-darkbrown/80 text-sm sm:text-base leading-relaxed italic mb-6 flex-1 transition-all",
+                expandedId === review.id ? "line-clamp-none" : "line-clamp-4 md:group-hover:line-clamp-none"
+              )}>
                 &quot;{review.reviewText}&quot;
               </p>
               
