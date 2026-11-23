@@ -41,7 +41,7 @@ export default function SenggigiPage() {
                   className={buttonVariants({
                     size: "lg",
                     className:
-                      "bg-primary hover:bg-terracotta-dark text-primary-foreground px-7 py-3 min-h-[44px] rounded-xl font-semibold",
+                      "bg-primary hover:bg-accent hover:text-accent-foreground text-primary-foreground px-7 py-3 min-h-[44px] rounded-xl font-semibold",
                   })}
                 >
                   View Senggigi Menu
@@ -52,7 +52,7 @@ export default function SenggigiPage() {
                     variant: "outline",
                     size: "lg",
                     className:
-                      "border-border bg-card text-foreground hover:bg-sandstone px-7 py-3 min-h-[44px] rounded-xl font-semibold",
+                      "border-border bg-card text-foreground hover:bg-muted px-7 py-3 min-h-[44px] rounded-xl font-semibold",
                   })}
                 >
                   Reserve at Senggigi
@@ -152,7 +152,7 @@ export default function SenggigiPage() {
                 href="https://www.google.com/maps?q=Yessy+Cafe+Senggigi,+Senggigi,+Kec.+Batu+Layar,+Kabupaten+Lombok+Barat,+Nusa+Tenggara+Bar.+83355"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2.5 min-h-[44px] bg-primary hover:bg-terracotta-dark text-primary-foreground px-6 py-3 rounded-xl font-semibold transition-colors"
+                className="inline-flex items-center gap-2.5 min-h-[44px] bg-primary hover:bg-accent hover:text-accent-foreground text-primary-foreground px-6 py-3 rounded-xl font-semibold transition-colors"
               >
                 <svg aria-hidden="true" className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path

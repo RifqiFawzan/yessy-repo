@@ -184,13 +184,13 @@ Thank you!`;
                   href={generateWhatsAppMessage()}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="press inline-flex items-center justify-center min-h-[44px] bg-primary hover:bg-terracotta-dark text-primary-foreground px-8 py-3 rounded-xl text-sm font-semibold transition-colors"
+                  className="press inline-flex items-center justify-center min-h-[44px] bg-primary hover:bg-accent hover:text-accent-foreground text-primary-foreground px-8 py-3 rounded-xl text-sm font-semibold transition-colors"
                 >
                   Confirm via WhatsApp
                 </a>
                 <a
                   href={generateEmailLink()}
-                  className="press inline-flex items-center justify-center min-h-[44px] border border-border bg-secondary hover:bg-sandstone text-foreground px-8 py-3 rounded-xl text-sm font-semibold transition-colors"
+                  className="press inline-flex items-center justify-center min-h-[44px] border border-border bg-secondary hover:bg-muted text-foreground px-8 py-3 rounded-xl text-sm font-semibold transition-colors"
                 >
                   Confirm via Email
                 </a>
@@ -452,7 +452,7 @@ Thank you!`;
                 <Button
                   type="submit"
                   size="lg"
-                  className="press bg-primary hover:bg-terracotta-dark text-primary-foreground px-10 py-3 min-h-[48px] rounded-xl text-sm font-semibold tracking-wide"
+                  className="press bg-primary hover:bg-accent hover:text-accent-foreground text-primary-foreground px-10 py-3 min-h-[48px] rounded-xl text-sm font-semibold tracking-wide"
                 >
                   Review Reservation Request
                 </Button>

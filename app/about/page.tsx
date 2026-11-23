@@ -206,7 +206,7 @@ export default function About() {
               className={buttonVariants({
                 size: "lg",
                 className:
-                  "w-full sm:w-auto bg-primary hover:bg-terracotta-dark text-primary-foreground px-8 py-3 text-base min-h-[44px] rounded-xl font-semibold transition-colors",
+                  "w-full sm:w-auto bg-primary hover:bg-accent hover:text-accent-foreground text-primary-foreground px-8 py-3 text-base min-h-[44px] rounded-xl font-semibold transition-colors",
               })}
             >
               Make a Reservation
@@ -217,7 +217,7 @@ export default function About() {
                 variant: "outline",
                 size: "lg",
                 className:
-                  "w-full sm:w-auto border-border bg-card text-foreground hover:bg-sandstone px-8 py-3 text-base min-h-[44px] rounded-xl font-semibold transition-colors",
+                  "w-full sm:w-auto border-border bg-card text-foreground hover:bg-muted px-8 py-3 text-base min-h-[44px] rounded-xl font-semibold transition-colors",
               })}
             >
               Browse Senggigi Menu

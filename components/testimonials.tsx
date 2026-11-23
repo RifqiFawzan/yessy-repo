@@ -139,7 +139,7 @@ export function Testimonials() {
                 <footer className="flex items-center gap-3 mt-4 pt-4 border-t border-border">
                   <div
                     aria-hidden="true"
-                    className="w-10 h-10 rounded-full bg-sandstone text-foreground flex items-center justify-center font-bold text-sm shrink-0"
+                    className="w-10 h-10 rounded-full bg-muted text-foreground flex items-center justify-center font-bold text-sm shrink-0"
                   >
                     {review.name.charAt(0)}
                   </div>

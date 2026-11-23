@@ -21,13 +21,19 @@ export const viewport: Viewport = {
   maximumScale: 5,
 };
 
+const themeInitScript = `(function(){try{if(localStorage.getItem('yessy-theme')==='dark')document.documentElement.classList.add('dark');}catch(e){}})();`;
+
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
       lang="en"
+      suppressHydrationWarning
       data-scroll-behavior="smooth"
       className={cn("h-full overflow-x-clip antialiased", karla.variable, playfair.variable, geistMono.variable, "font-sans")}
     >
+      <head>
+        <script dangerouslySetInnerHTML={{ __html: themeInitScript }} />
+      </head>
       <body className="min-h-full flex flex-col grain-overlay overflow-x-clip">
         <a href="#main-content" className="skip-link">
           Skip to main content

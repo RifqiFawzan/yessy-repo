@@ -148,14 +148,14 @@ export function MenuFlipbook({
               }}
             >
               {page.type === "cover" ? (
-                <div className="flex-1 min-h-[520px] flex items-center justify-center bg-gradient-to-br from-[#efe4d2] via-[#e7d7bf] to-[#efe4d2] p-6">
+                <div className="flex-1 min-h-[520px] flex items-center justify-center bg-secondary p-6">
                   <div className="text-center text-foreground flex flex-col items-center">
                     <div className="relative w-48 h-48 sm:w-56 sm:h-56 mb-4">
                       <Image
                         src="/logo trnz.png"
                         alt="Yessy Restaurant Logo"
                         fill
-                        className="object-contain [filter:brightness(0.24)_sepia(0.35)_contrast(1.25)]"
+                        className="object-contain [filter:brightness(0.24)_sepia(0.35)_contrast(1.25)] dark:[filter:none]"
                         unoptimized={true}
                         priority
                       />
@@ -170,7 +170,7 @@ export function MenuFlipbook({
                   </div>
                 </div>
               ) : page.type === "backcover" ? (
-                <div className="flex-1 min-h-[520px] flex items-center justify-center bg-gradient-to-br from-[#efe4d2] via-[#e7d7bf] to-[#efe4d2] p-6">
+                <div className="flex-1 min-h-[520px] flex items-center justify-center bg-secondary p-6">
                   <div className="text-center text-foreground">
                     <h2 className="font-heading text-3xl font-bold tracking-wider mb-2">
                       Thank You
@@ -185,7 +185,7 @@ export function MenuFlipbook({
                   </div>
                 </div>
               ) : (
-                <div className="flex-1 min-h-[520px] bg-gradient-to-br from-[#fffdf9] to-[#faf5ec]">
+                <div className="flex-1 min-h-[520px] bg-card text-card-foreground">
                   <MenuPage
                     category={page.category!}
                     items={page.items!}
@@ -203,7 +203,7 @@ export function MenuFlipbook({
           type="button"
           onClick={goToPrev}
           disabled={currentPage <= 0}
-          className="press flex items-center justify-center min-w-[44px] min-h-[44px] rounded-full bg-primary text-primary-foreground disabled:opacity-40 hover:bg-terracotta-dark transition-colors duration-150"
+          className="press flex items-center justify-center min-w-[44px] min-h-[44px] rounded-full bg-primary text-primary-foreground disabled:opacity-40 hover:bg-accent hover:text-accent-foreground transition-colors duration-150"
           aria-label="Previous page"
         >
           <svg aria-hidden="true" className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -219,7 +219,7 @@ export function MenuFlipbook({
           type="button"
           onClick={goToNext}
           disabled={currentPage >= totalPages - 1}
-          className="press flex items-center justify-center min-w-[44px] min-h-[44px] rounded-full bg-primary text-primary-foreground disabled:opacity-40 hover:bg-terracotta-dark transition-colors duration-150"
+          className="press flex items-center justify-center min-w-[44px] min-h-[44px] rounded-full bg-primary text-primary-foreground disabled:opacity-40 hover:bg-accent hover:text-accent-foreground transition-colors duration-150"
           aria-label="Next page"
         >
           <svg aria-hidden="true" className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">

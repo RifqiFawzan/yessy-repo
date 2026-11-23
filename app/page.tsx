@@ -38,7 +38,7 @@ export default function Home() {
                   className={buttonVariants({
                     size: "lg",
                     className:
-                      "press w-full sm:w-auto bg-primary hover:bg-terracotta-dark text-primary-foreground px-7 py-3 text-base min-h-[44px] rounded-xl font-semibold transition-colors",
+                      "press w-full sm:w-auto bg-primary hover:bg-accent hover:text-accent-foreground text-primary-foreground px-7 py-3 text-base min-h-[44px] rounded-xl font-semibold transition-colors",
                   })}
                 >
                   Reserve a Table
@@ -49,7 +49,7 @@ export default function Home() {
                     variant: "outline",
                     size: "lg",
                     className:
-                      "press w-full sm:w-auto border-border bg-card text-foreground hover:bg-sandstone px-7 py-3 text-base min-h-[44px] rounded-xl font-semibold transition-colors",
+                      "press w-full sm:w-auto border-border bg-card text-foreground hover:bg-muted px-7 py-3 text-base min-h-[44px] rounded-xl font-semibold transition-colors",
                   })}
                 >
                   Compare Our Two Locations
@@ -58,7 +58,7 @@ export default function Home() {
             </div>
 
             <div className="lg:col-span-6 animate-hero-reveal" style={{ animationDelay: "220ms" }}>
-              <div className="relative aspect-[4/3] rounded-2xl overflow-hidden border border-border shadow-md bg-sandstone">
+              <div className="relative aspect-[4/3] rounded-2xl overflow-hidden border border-border shadow-md bg-muted">
                 <Image
                   src="/YESSY-TANJUNGBIAS%20(6%20of%2051).jpg"
                   alt="Sunlit coastal dining tables at Yessy Restaurant in Lombok"
@@ -165,7 +165,7 @@ export default function Home() {
       <section className="py-14 sm:py-20 bg-background">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <ScrollReveal animation="scale-in">
-            <div className="rounded-3xl bg-sandstone border border-border p-8 sm:p-12 text-center">
+            <div className="rounded-3xl bg-muted border border-border p-8 sm:p-12 text-center">
               <h2 className="font-heading text-2xl sm:text-3xl md:text-4xl font-bold text-foreground mb-4">
                 Planning Dinner in Lombok?
               </h2>
@@ -177,7 +177,7 @@ export default function Home() {
                 className={buttonVariants({
                   size: "lg",
                   className:
-                    "press bg-primary hover:bg-terracotta-dark text-primary-foreground px-8 sm:px-10 py-3 text-base min-h-[44px] rounded-xl font-semibold transition-colors",
+                    "press bg-primary hover:bg-accent hover:text-accent-foreground text-primary-foreground px-8 sm:px-10 py-3 text-base min-h-[44px] rounded-xl font-semibold transition-colors",
                 })}
               >
                 Book Your Table
