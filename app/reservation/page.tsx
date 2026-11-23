@@ -3,6 +3,7 @@
 import { useState } from "react";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
+import { ScrollReveal } from "@/components/scroll-reveal";
 import { cn } from "@/lib/utils";
 
 const places = [
@@ -97,16 +98,22 @@ Thank you!`;
           src="/AMBIENT AND SPACE (17 of 84).jpg"
           alt="Reservation Background"
           fill
-          className="object-cover opacity-20"
+          className="object-cover opacity-20 animate-hero-bg"
           sizes="100vw"
           unoptimized={true}
         />
         <div className="absolute inset-0 bg-gradient-to-t from-darkbrown to-transparent" />
         <div className="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h1 className="font-heading text-4xl sm:text-5xl md:text-6xl font-light mb-6 tracking-tight animate-fade-in delay-100">
+          <h1
+            className="font-heading text-4xl sm:text-5xl md:text-6xl font-light mb-6 tracking-tight animate-hero-reveal"
+            style={{ animationDelay: "150ms" }}
+          >
             Reserve Your Experience
           </h1>
-          <p className="text-sand/90 text-sm sm:text-base max-w-xl mx-auto font-light tracking-wide animate-fade-in delay-200">
+          <p
+            className="text-sand/90 text-sm sm:text-base max-w-xl mx-auto font-light tracking-wide animate-hero-reveal"
+            style={{ animationDelay: "350ms" }}
+          >
             Join us for an unforgettable culinary journey. Select your preferred date, time, and location below to secure your table.
           </p>
         </div>
@@ -117,24 +124,24 @@ Thank you!`;
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           {submitted ? (
             <div className="bg-white p-10 sm:p-16 rounded-sm shadow-2xl shadow-darkbrown/5 border border-sand/30 text-center animate-scale-in">
-              <div className="w-16 h-16 mx-auto mb-8 rounded-full border-2 border-camel flex items-center justify-center">
+              <div className="w-16 h-16 mx-auto mb-8 rounded-full border-2 border-camel flex items-center justify-center animate-scale-in delay-100">
                 <svg className="w-6 h-6 text-camel" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M5 13l4 4L19 7" />
                 </svg>
               </div>
-              <h2 className="font-heading text-3xl font-light text-darkbrown mb-4">Request Received</h2>
-              <p className="text-brown/70 mb-10 max-w-md mx-auto font-light leading-relaxed">
+              <h2 className="font-heading text-3xl font-light text-darkbrown mb-4 animate-fade-in delay-200">Request Received</h2>
+              <p className="text-brown/70 mb-10 max-w-md mx-auto font-light leading-relaxed animate-fade-in delay-300">
                 Your reservation details have been captured. To finalize your booking, please confirm via WhatsApp or Email below.
               </p>
 
-              <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <a href={generateWhatsAppMessage()} target="_blank" rel="noopener noreferrer">
-                  <Button size="lg" className="bg-darkbrown hover:bg-black text-cream px-8 w-full sm:w-auto rounded-none tracking-widest text-xs uppercase h-12 transition-all">
+              <div className="flex flex-col sm:flex-row gap-4 justify-center animate-fade-in delay-400">
+                <a href={generateWhatsAppMessage()} target="_blank" rel="noopener noreferrer" className="sm:w-auto w-full">
+                  <Button size="lg" className="press bg-darkbrown hover:bg-black text-cream px-8 w-full sm:w-auto rounded-none tracking-widest text-xs uppercase h-12">
                     Confirm via WhatsApp
                   </Button>
                 </a>
-                <a href={generateEmailLink()}>
-                  <Button size="lg" variant="outline" className="border-darkbrown text-darkbrown hover:bg-darkbrown hover:text-cream px-8 w-full sm:w-auto rounded-none tracking-widest text-xs uppercase h-12 transition-all">
+                <a href={generateEmailLink()} className="sm:w-auto w-full">
+                  <Button size="lg" variant="outline" className="press border-darkbrown text-darkbrown hover:bg-darkbrown hover:text-cream px-8 w-full sm:w-auto rounded-none tracking-widest text-xs uppercase h-12">
                     Confirm via Email
                   </Button>
                 </a>
@@ -142,7 +149,7 @@ Thank you!`;
 
               <button
                 onClick={() => { setSubmitted(false); }}
-                className="mt-12 text-camel hover:text-darkbrown text-xs uppercase tracking-widest transition-colors border-b border-transparent hover:border-darkbrown pb-1"
+                className="press-subtle mt-12 text-camel hover:text-darkbrown text-xs uppercase tracking-widest transition-colors border-b border-transparent hover:border-darkbrown pb-1 animate-fade-in delay-500"
               >
                 Make another reservation
               </button>
@@ -151,37 +158,51 @@ Thank you!`;
             <form onSubmit={handleSubmit} className="bg-white p-8 sm:p-14 lg:p-20 rounded-sm shadow-2xl shadow-darkbrown/5 border border-sand/30 animate-fade-in">
               
               {/* Location Selection */}
-              <div className="mb-14">
-                <h3 className="font-heading text-xl text-darkbrown mb-6 border-b border-sand/30 pb-4 flex items-center gap-3">
-                  <span className="text-camel text-sm">01.</span> Select Location
-                </h3>
-                <div className="grid sm:grid-cols-2 gap-4">
-                  {places.map((place) => (
-                    <button
-                      key={place.id}
-                      type="button"
-                      onClick={() => handlePlaceSelect(place.id)}
-                      className={cn(
-                        "text-left p-6 transition-all duration-300 border rounded-sm",
-                        formData.place === place.id
-                          ? "border-camel bg-camel/5 shadow-sm"
-                          : "border-sand/40 hover:border-camel/50 bg-transparent"
-                      )}
-                    >
-                      <h4 className={cn(
-                        "font-heading text-lg mb-1 transition-colors",
-                        formData.place === place.id ? "text-darkbrown font-semibold" : "text-brown"
-                      )}>
-                        {place.name}
-                      </h4>
-                      <p className="text-xs text-brown/60 leading-relaxed font-light">{place.address}</p>
-                    </button>
-                  ))}
+              <ScrollReveal animation="fade-up">
+                <div className="mb-14">
+                  <h3 className="font-heading text-xl text-darkbrown mb-6 border-b border-sand/30 pb-4 flex items-center gap-3">
+                    <span className="text-camel text-sm">01.</span> Select Location
+                  </h3>
+                  <div className="grid sm:grid-cols-2 gap-4">
+                    {places.map((place, index) => {
+                      const selected = formData.place === place.id;
+                      return (
+                        <button
+                          key={place.id}
+                          type="button"
+                          onClick={() => handlePlaceSelect(place.id)}
+                          className={cn(
+                            "reservation-card relative text-left p-6 border rounded-sm",
+                            selected
+                              ? "border-camel bg-camel/5 shadow-sm"
+                              : "border-sand/40 bg-transparent hover:border-camel/60"
+                          )}
+                        >
+                          <span
+                            aria-hidden="true"
+                            className={cn(
+                              "absolute top-5 right-5 size-1.5 rounded-full bg-camel transition-[opacity,scale] duration-200 ease-out",
+                              selected ? "opacity-100 scale-100" : "opacity-0 scale-50"
+                            )}
+                            style={{ transitionDelay: selected ? `${index * 40}ms` : "0ms" }}
+                          />
+                          <h4 className={cn(
+                            "font-heading text-lg mb-1 transition-colors duration-200",
+                            selected ? "text-darkbrown font-semibold" : "text-brown"
+                          )}>
+                            {place.name}
+                          </h4>
+                          <p className="text-xs text-brown/60 leading-relaxed font-light">{place.address}</p>
+                        </button>
+                      );
+                    })}
+                  </div>
                 </div>
-              </div>
+              </ScrollReveal>
 
               {/* Date & Time Selection */}
-              <div className="mb-14">
+              <ScrollReveal animation="fade-up" delay={80}>
+                <div className="mb-14">
                 <h3 className="font-heading text-xl text-darkbrown mb-6 border-b border-sand/30 pb-4 flex items-center gap-3">
                   <span className="text-camel text-sm">02.</span> Date & Time
                 </h3>
@@ -211,7 +232,7 @@ Thank you!`;
                           type="button"
                           onClick={() => handleSlotSelect(slot)}
                           className={cn(
-                            "py-2 text-sm transition-all rounded-sm border",
+                            "press py-2 text-sm rounded-sm border",
                             formData.time === slot
                               ? "bg-darkbrown text-white border-darkbrown"
                               : "bg-transparent text-brown border-sand/40 hover:border-camel hover:text-camel"
@@ -223,10 +244,12 @@ Thank you!`;
                     </div>
                   </div>
                 </div>
-              </div>
+                </div>
+              </ScrollReveal>
 
               {/* Guest Details */}
-              <div className="mb-12">
+              <ScrollReveal animation="fade-up" delay={80}>
+                <div className="mb-12">
                 <h3 className="font-heading text-xl text-darkbrown mb-8 border-b border-sand/30 pb-4 flex items-center gap-3">
                   <span className="text-camel text-sm">03.</span> Guest Details
                 </h3>
@@ -336,17 +359,29 @@ Thank you!`;
                     />
                   </div>
                 </div>
-              </div>
+                </div>
+              </ScrollReveal>
 
               {/* Submit Action */}
-              <div className="mt-12 text-center pt-8 border-t border-sand/30">
-                <Button type="submit" size="lg" className="bg-darkbrown hover:bg-black text-cream px-14 py-4 h-14 rounded-none text-sm tracking-widest uppercase transition-all duration-300 hover:shadow-xl">
-                  Request Reservation
-                </Button>
-                <p className="mt-4 text-xs text-brown/60 font-light tracking-wide">
-                  Your reservation is subject to confirmation via WhatsApp or Email.
-                </p>
-              </div>
+              <ScrollReveal animation="fade-up" delay={100}>
+                <div className="mt-12 text-center pt-8 border-t border-sand/30">
+                  <Button type="submit" size="lg" className="press bg-darkbrown hover:bg-black text-cream px-14 py-4 h-14 rounded-none text-sm tracking-widest uppercase hover:shadow-xl">
+                    Request Reservation
+                    <svg
+                      aria-hidden="true"
+                      className="cta-arrow ml-2 size-4"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M5 12h14M13 6l6 6-6 6" />
+                    </svg>
+                  </Button>
+                  <p className="mt-4 text-xs text-brown/60 font-light tracking-wide">
+                    Your reservation is subject to confirmation via WhatsApp or Email.
+                  </p>
+                </div>
+              </ScrollReveal>
             </form>
           )}
         </div>

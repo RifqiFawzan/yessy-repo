@@ -225,6 +225,19 @@
     transform: none;
     transition: none;
   }
+
+  .press,
+  .reservation-card {
+    transition: none;
+  }
+
+  .press:active,
+  .press-subtle:active,
+  .reservation-card:hover,
+  .reservation-card:active,
+  .cta-arrow {
+    transform: none;
+  }
 }
 
 html {
@@ -248,6 +261,60 @@ html {
   .hover-lift:active {
     transform: translateY(-1px) scale(0.98);
     transition-duration: 100ms;
+  }
+}
+
+/* Instant press feedback for interactive elements */
+.press {
+  transition-property: transform, background-color, border-color, color, box-shadow;
+  transition-duration: 160ms;
+  transition-timing-function: var(--ease-out);
+}
+
+.press:active {
+  transform: scale(0.97);
+  transition-duration: 100ms;
+}
+
+.press-subtle {
+  transition: transform 160ms var(--ease-out), color 200ms var(--ease-out),
+    border-color 200ms var(--ease-out);
+}
+
+.press-subtle:active {
+  transform: scale(0.985);
+  transition-duration: 100ms;
+}
+
+.cta-arrow {
+  transition: transform 200ms var(--ease-out);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .press:hover .cta-arrow {
+    transform: translateX(4px);
+  }
+}
+
+/* Location cards: lift on precise pointers, press anywhere */
+.reservation-card {
+  transition: transform 250ms var(--ease-out), background-color 250ms var(--ease-out),
+    border-color 250ms var(--ease-out), box-shadow 250ms var(--ease-out);
+}
+
+.reservation-card:active {
+  transform: scale(0.99);
+  transition-duration: 100ms;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .reservation-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 32px -16px rgba(59, 42, 34, 0.25);
+  }
+
+  .reservation-card:active {
+    transform: translateY(-1px) scale(0.99);
   }
 }
 
