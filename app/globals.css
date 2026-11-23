@@ -2,8 +2,6 @@
 @import "tw-animate-css";
 @import "shadcn/tailwind.css";
 
-@custom-variant dark (&:is(.dark *));
-
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
@@ -39,9 +37,6 @@
   --color-popover: var(--popover);
   --color-card-foreground: var(--card-foreground);
   --color-card: var(--card);
-  --color-surface-dark: var(--surface-dark);
-  --color-surface-dark-foreground: var(--surface-dark-foreground);
-  --color-surface-dark-muted: var(--surface-dark-muted);
   --radius-sm: calc(var(--radius) * 0.6);
   --radius-md: calc(var(--radius) * 0.8);
   --radius-lg: var(--radius);
@@ -50,83 +45,51 @@
   --radius-3xl: calc(var(--radius) * 2.2);
   --radius-4xl: calc(var(--radius) * 2.6);
 
-  --color-cream: #f3e9d7;
+  --color-cream: #faf5ec;
+  --color-sand: #efe4d2;
+  --color-sandstone: #e7d7bf;
   --color-camel: #b08968;
-  --color-sand: #d6bfa6;
-  --color-brown: #7a553a;
-  --color-darkbrown: #3b2a22;
+  --color-terracotta: #9c5633;
+  --color-terracotta-dark: #844729;
+  --color-brown: #6e4c36;
+  --color-darkbrown: #3a2920;
 }
 
 :root {
-  --background: #f3ead8;
-  --foreground: #3b2a22;
-  --card: #fdf8f0;
-  --card-foreground: #3b2a22;
-  --popover: #fdf8f0;
-  --popover-foreground: #3b2a22;
-  --primary: #8c623f;
+  --background: #faf5ec;
+  --foreground: #3a2920;
+  --card: #fffdf9;
+  --card-foreground: #3a2920;
+  --popover: #fffdf9;
+  --popover-foreground: #3a2920;
+  --primary: #9c5633;
   --primary-foreground: #ffffff;
-  --secondary: #d6bfa6;
-  --secondary-foreground: #3b2a22;
-  --muted: #e9dcc7;
-  --muted-foreground: #7a553a;
-  --accent: #7a553a;
-  --accent-foreground: #f3ead8;
+  --secondary: #efe4d2;
+  --secondary-foreground: #3a2920;
+  --muted: #e7d7bf;
+  --muted-foreground: #6e4c36;
+  --accent: #844729;
+  --accent-foreground: #ffffff;
   --destructive: #b91c1c;
-  --border: #d6bfa6;
-  --input: #cbb195;
-  --ring: #8c623f;
-  --surface-dark: #3b2a22;
-  --surface-dark-foreground: #f3ead8;
-  --surface-dark-muted: #d6bfa6;
-  --chart-1: #8c623f;
-  --chart-2: #7a553a;
-  --chart-3: #d6bfa6;
-  --chart-4: #3b2a22;
-  --chart-5: #f3e9d7;
+  --border: #dccab0;
+  --input: #cbb393;
+  --ring: #9c5633;
+  --chart-1: #9c5633;
+  --chart-2: #6e4c36;
+  --chart-3: #e7d7bf;
+  --chart-4: #3a2920;
+  --chart-5: #faf5ec;
   --radius: 0.625rem;
-  --sidebar: #fdf8f0;
-  --sidebar-foreground: #3b2a22;
-  --sidebar-primary: #8c623f;
+  --sidebar: #fffdf9;
+  --sidebar-foreground: #3a2920;
+  --sidebar-primary: #9c5633;
   --sidebar-primary-foreground: #ffffff;
-  --sidebar-accent: #e9dcc7;
-  --sidebar-accent-foreground: #3b2a22;
-  --sidebar-border: #d6bfa6;
-  --sidebar-ring: #8c623f;
+  --sidebar-accent: #efe4d2;
+  --sidebar-accent-foreground: #3a2920;
+  --sidebar-border: #dccab0;
+  --sidebar-ring: #9c5633;
   --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
   --ease-in-out: cubic-bezier(0.77, 0, 0.175, 1);
-}
-
-.dark {
-  --background: #1d1511;
-  --foreground: #f3ead8;
-  --card: #281d18;
-  --card-foreground: #f3ead8;
-  --popover: #281d18;
-  --popover-foreground: #f3ead8;
-  --primary: #d6bfa6;
-  --primary-foreground: #1d1511;
-  --secondary: #3b2a22;
-  --secondary-foreground: #f3ead8;
-  --muted: #33241d;
-  --muted-foreground: #d6bfa6;
-  --accent: #b08968;
-  --accent-foreground: #1d1511;
-  --destructive: #f87171;
-  --border: #4a352b;
-  --input: #5a4236;
-  --ring: #d6bfa6;
-  --surface-dark: #140e0b;
-  --surface-dark-foreground: #f3ead8;
-  --surface-dark-muted: #d6bfa6;
-  --sidebar: #281d18;
-  --sidebar-foreground: #f3ead8;
-  --sidebar-primary: #d6bfa6;
-  --sidebar-primary-foreground: #1d1511;
-  --sidebar-accent: #33241d;
-  --sidebar-accent-foreground: #f3ead8;
-  --sidebar-border: #4a352b;
-  --sidebar-ring: #d6bfa6;
 }
 
 @layer base {
@@ -143,7 +106,6 @@
     @apply bg-background text-foreground;
   }
 
-  /* Ensure interactive elements clearly signal clickability (R-39) */
   a[href],
   button,
   summary,
@@ -171,7 +133,6 @@
     cursor: not-allowed;
   }
 
-  /* High-contrast keyboard focus indicator across all controls (R-32) */
   :is(a, button, summary, input, select, textarea, [tabindex]):focus-visible {
     outline: 2px solid var(--ring);
     outline-offset: 2px;
@@ -183,12 +144,12 @@
   top: -100px;
   left: 16px;
   z-index: 100;
-  background: var(--surface-dark);
-  color: var(--surface-dark-foreground);
+  background: var(--primary);
+  color: var(--primary-foreground);
   padding: 10px 18px;
   border-radius: 0.75rem;
   font-weight: 600;
-  border: 2px solid var(--ring);
+  border: 2px solid var(--foreground);
   transition: top 150ms var(--ease-out);
 }
 
@@ -197,6 +158,16 @@
 }
 
 @layer utilities {
+  @keyframes fade-in {
+    from { opacity: 0; transform: translateY(14px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes hero-reveal {
+    from { opacity: 0; transform: translateY(20px) scale(0.985); }
+    to { opacity: 1; transform: translateY(0) scale(1); }
+  }
+
   @keyframes slide-down {
     from { opacity: 0; transform: translateY(-6px); }
     to { opacity: 1; transform: translateY(0); }
@@ -208,8 +179,16 @@
   }
 
   @keyframes page-enter {
-    from { opacity: 0; transform: translateY(8px); }
+    from { opacity: 0; transform: translateY(10px); }
     to { opacity: 1; transform: translateY(0); }
+  }
+
+  .animate-fade-in {
+    animation: fade-in 520ms var(--ease-out) both;
+  }
+
+  .animate-hero-reveal {
+    animation: hero-reveal 650ms var(--ease-out) both;
   }
 
   .animate-slide-down {
@@ -221,7 +200,7 @@
   }
 
   .animate-page-enter {
-    animation: page-enter 280ms var(--ease-out) both;
+    animation: page-enter 320ms var(--ease-out) both;
   }
 }
 
@@ -242,7 +221,7 @@
   }
   .hover-lift:hover {
     transform: translateY(-3px);
-    box-shadow: 0 8px 25px -5px rgba(59, 42, 34, 0.15);
+    box-shadow: 0 10px 28px -10px rgba(110, 76, 54, 0.22);
   }
   .hover-lift:active {
     transform: translateY(-1px) scale(0.99);
@@ -277,13 +256,13 @@
   inset: 0;
   z-index: 9999;
   pointer-events: none;
-  opacity: 0.035;
+  opacity: 0.025;
   background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
   background-repeat: repeat;
   background-size: 256px 256px;
 }
 
-/* Flipbook paper layout — always keeps high-contrast paper tokens */
+/* Flipbook sunlit paper styles */
 .flipbook-page-inner {
   width: 100%;
   height: 100%;
@@ -299,12 +278,12 @@
   gap: 12px;
   margin-bottom: 18px;
   padding-bottom: 12px;
-  border-bottom: 1.5px solid #d6bfa6;
+  border-bottom: 1.5px solid #dccab0;
 }
 
 .page-number {
   font-size: 0.875rem;
-  color: #7a553a;
+  color: #844729;
   font-weight: 700;
 }
 
@@ -312,7 +291,7 @@
   font-family: var(--font-heading);
   font-size: 1.25rem;
   font-weight: 700;
-  color: #3b2a22;
+  color: #3a2920;
 }
 
 .page-items {
@@ -344,14 +323,14 @@
   font-family: var(--font-heading);
   font-size: 0.95rem;
   font-weight: 700;
-  color: #3b2a22;
+  color: #3a2920;
   margin: 0;
 }
 
 .page-item-dots {
   flex: 1;
   min-width: 16px;
-  border-bottom: 2px dotted rgba(122, 85, 58, 0.35);
+  border-bottom: 2px dotted rgba(110, 76, 54, 0.3);
   margin: 0 4px;
   position: relative;
   top: -4px;
@@ -360,13 +339,13 @@
 .page-item-price {
   font-size: 0.9rem;
   font-weight: 700;
-  color: #7a553a;
+  color: #844729;
   white-space: nowrap;
 }
 
 .page-item-desc {
   font-size: 0.8rem;
-  color: #5c3f2b;
+  color: #6e4c36;
   line-height: 1.45;
   margin: 0;
 }

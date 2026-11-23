@@ -63,7 +63,7 @@ function StarRating({ rating }: { rating: number }) {
           aria-hidden="true"
           className={cn(
             "w-4 h-4",
-            i < rating ? "text-amber-500 fill-amber-500" : "text-border fill-transparent"
+            i < rating ? "text-amber-600 fill-amber-500" : "text-border fill-transparent"
           )}
           viewBox="0 0 24 24"
         >
@@ -78,7 +78,7 @@ export function Testimonials() {
   const [expandedId, setExpandedId] = useState<number | null>(null);
 
   return (
-    <section aria-labelledby="reviews-heading" className="py-16 sm:py-24 bg-background">
+    <section aria-labelledby="reviews-heading" className="py-16 sm:py-24 bg-secondary border-y border-border">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-10 sm:mb-14 border-b border-border pb-6">
           <div>
@@ -103,7 +103,7 @@ export function Testimonials() {
             return (
               <article
                 key={review.id}
-                className="bg-card text-card-foreground rounded-2xl p-6 sm:p-7 border border-border shadow-sm flex flex-col justify-between"
+                className="bg-card text-card-foreground rounded-2xl p-6 sm:p-7 border border-border shadow-xs flex flex-col justify-between"
               >
                 <div>
                   <div className="flex items-center justify-between gap-3 mb-4">
@@ -139,7 +139,7 @@ export function Testimonials() {
                 <footer className="flex items-center gap-3 mt-4 pt-4 border-t border-border">
                   <div
                     aria-hidden="true"
-                    className="w-10 h-10 rounded-full bg-secondary text-secondary-foreground flex items-center justify-center font-bold text-sm shrink-0"
+                    className="w-10 h-10 rounded-full bg-sandstone text-foreground flex items-center justify-center font-bold text-sm shrink-0"
                   >
                     {review.name.charAt(0)}
                   </div>

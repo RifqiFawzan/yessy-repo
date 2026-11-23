@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { buttonVariants } from "@/components/ui/button";
+import { ScrollReveal } from "@/components/scroll-reveal";
 
 const milestones = [
   {
@@ -49,15 +50,15 @@ const kitchenCommitments = [
 export default function About() {
   return (
     <div>
-      <section className="bg-surface-dark text-surface-dark-foreground py-16 sm:py-24">
+      <section className="bg-secondary border-b border-border py-16 sm:py-20">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <p className="text-surface-dark-muted font-bold tracking-widest uppercase mb-3 text-xs sm:text-sm">
+          <p className="text-muted-foreground font-bold tracking-widest uppercase mb-3 text-xs sm:text-sm animate-hero-reveal" style={{ animationDelay: "60ms" }}>
             Since 2005
           </p>
-          <h1 className="font-heading text-3xl sm:text-4xl md:text-5xl font-bold mb-5 text-cream">
+          <h1 className="font-heading text-3xl sm:text-4xl md:text-5xl font-bold mb-5 text-foreground animate-hero-reveal" style={{ animationDelay: "160ms" }}>
             Our Story
           </h1>
-          <p className="text-surface-dark-muted text-base sm:text-lg max-w-2xl mx-auto leading-relaxed">
+          <p className="text-muted-foreground text-base sm:text-lg max-w-2xl mx-auto leading-relaxed animate-hero-reveal" style={{ animationDelay: "260ms" }}>
             A family-run kitchen in West Lombok serving fresh coastal seafood and Western classics for two decades.
           </p>
         </div>
@@ -66,7 +67,7 @@ export default function About() {
       <section className="py-14 sm:py-20 bg-background">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid md:grid-cols-12 gap-10 items-start">
-            <div className="md:col-span-7">
+            <ScrollReveal animation="fade-left" className="md:col-span-7">
               <p className="text-muted-foreground font-bold tracking-widest uppercase mb-3 text-xs sm:text-sm">
                 Who We Are
               </p>
@@ -84,9 +85,10 @@ export default function About() {
                   Whether you sit indoors in Senggigi or dine beside the waves at Tanjung Bias, our focus stays simple: honest ingredients, generous plates, and warm service.
                 </p>
               </div>
-            </div>
+            </ScrollReveal>
 
-            <aside className="md:col-span-5 bg-card text-card-foreground rounded-2xl p-6 sm:p-8 border border-border shadow-sm space-y-6">
+            <ScrollReveal animation="fade-right" delay={120} className="md:col-span-5">
+              <aside className="bg-card text-card-foreground rounded-2xl p-6 sm:p-8 border border-border shadow-xs space-y-6">
               <div>
                 <p className="text-xs font-bold tracking-widest uppercase text-muted-foreground mb-1">
                   Established
@@ -118,7 +120,8 @@ export default function About() {
                   Daily grilled seafood, Lombok specialties, steaks, pasta, and fresh tropical juices.
                 </p>
               </div>
-            </aside>
+              </aside>
+            </ScrollReveal>
           </div>
         </div>
       </section>
@@ -141,7 +144,7 @@ export default function About() {
                   aria-hidden="true"
                   className="absolute -left-[33px] sm:-left-[41px] top-1.5 w-3.5 h-3.5 rounded-full bg-primary border-2 border-card"
                 />
-                <span className="inline-block bg-secondary text-secondary-foreground text-xs font-bold px-3 py-1 rounded-full mb-2">
+                <span className="inline-block bg-secondary text-secondary-foreground border border-border text-xs font-bold px-3 py-1 rounded-full mb-2">
                   {item.year}
                 </span>
                 <h3 className="font-heading text-lg sm:text-xl font-bold text-card-foreground mb-1">
@@ -171,7 +174,7 @@ export default function About() {
             <div className="md:col-span-8 divide-y divide-border border-y border-border">
               {kitchenCommitments.map((item, idx) => (
                 <div key={item.title} className="py-6 first:pt-4 last:pb-4 flex gap-4 sm:gap-6">
-                  <span className="font-heading text-xl font-bold text-muted-foreground shrink-0 tabular-nums">
+                  <span className="font-heading text-xl font-bold text-primary shrink-0 tabular-nums">
                     0{idx + 1}
                   </span>
                   <div>
@@ -189,12 +192,12 @@ export default function About() {
         </div>
       </section>
 
-      <section className="py-14 sm:py-20 bg-surface-dark text-surface-dark-foreground">
+      <section className="py-14 sm:py-20 bg-secondary border-t border-border">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="font-heading text-2xl sm:text-3xl md:text-4xl font-bold text-cream mb-4">
+          <h2 className="font-heading text-2xl sm:text-3xl md:text-4xl font-bold text-foreground mb-4">
             Dine With Us in Lombok
           </h2>
-          <p className="text-surface-dark-muted max-w-xl mx-auto mb-8 leading-relaxed text-sm sm:text-base">
+          <p className="text-muted-foreground max-w-xl mx-auto mb-8 leading-relaxed text-sm sm:text-base">
             Reserve a table ahead of time or browse our Senggigi and Tanjung Bias menus.
           </p>
           <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center">
@@ -203,7 +206,7 @@ export default function About() {
               className={buttonVariants({
                 size: "lg",
                 className:
-                  "w-full sm:w-auto bg-primary hover:bg-brown text-primary-foreground px-8 py-3 text-base min-h-[44px] rounded-xl font-semibold transition-colors",
+                  "w-full sm:w-auto bg-primary hover:bg-terracotta-dark text-primary-foreground px-8 py-3 text-base min-h-[44px] rounded-xl font-semibold transition-colors",
               })}
             >
               Make a Reservation
@@ -214,7 +217,7 @@ export default function About() {
                 variant: "outline",
                 size: "lg",
                 className:
-                  "w-full sm:w-auto border-sand/60 bg-transparent text-cream hover:bg-brown hover:text-white px-8 py-3 text-base min-h-[44px] rounded-xl font-semibold transition-colors",
+                  "w-full sm:w-auto border-border bg-card text-foreground hover:bg-sandstone px-8 py-3 text-base min-h-[44px] rounded-xl font-semibold transition-colors",
               })}
             >
               Browse Senggigi Menu

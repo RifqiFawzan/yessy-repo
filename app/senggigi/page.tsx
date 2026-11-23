@@ -2,6 +2,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { buttonVariants } from "@/components/ui/button";
 import { AmbientCarousel, type CarouselImage } from "@/components/ambient-carousel";
+import { ScrollReveal } from "@/components/scroll-reveal";
 
 const senggigiImages: CarouselImage[] = [
   { src: "/cafe1%20(1).jpg", alt: "Yessy Senggigi indoor dining space" },
@@ -21,26 +22,26 @@ const bestSellers = [
 export default function SenggigiPage() {
   return (
     <div>
-      <section className="bg-surface-dark text-surface-dark-foreground py-14 sm:py-20">
+      <section className="bg-secondary border-b border-border py-14 sm:py-20">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid md:grid-cols-12 gap-8 items-center">
             <div className="md:col-span-7">
-              <p className="text-surface-dark-muted font-bold tracking-widest uppercase mb-3 text-xs sm:text-sm">
+              <p className="text-muted-foreground font-bold tracking-widest uppercase mb-3 text-xs sm:text-sm animate-hero-reveal" style={{ animationDelay: "60ms" }}>
                 Fine Dining &amp; Grill
               </p>
-              <h1 className="font-heading text-3xl sm:text-4xl md:text-5xl font-bold mb-4 text-cream">
+              <h1 className="font-heading text-3xl sm:text-4xl md:text-5xl font-bold mb-4 text-foreground animate-hero-reveal" style={{ animationDelay: "160ms" }}>
                 Yessy Senggigi
               </h1>
-              <p className="text-surface-dark-muted text-base sm:text-lg leading-relaxed mb-7 max-w-xl">
+              <p className="text-muted-foreground text-base sm:text-lg leading-relaxed mb-7 max-w-xl animate-hero-reveal" style={{ animationDelay: "260ms" }}>
                 Our original Senggigi kitchen pairs Western grill classics with fresh Lombok ingredients in a calm dining room.
               </p>
-              <div className="flex flex-col sm:flex-row gap-3">
+              <div className="flex flex-col sm:flex-row gap-3 animate-hero-reveal" style={{ animationDelay: "360ms" }}>
                 <Link
                   href="/menu-flipbook"
                   className={buttonVariants({
                     size: "lg",
                     className:
-                      "bg-primary hover:bg-brown text-primary-foreground px-7 py-3 min-h-[44px] rounded-xl font-semibold",
+                      "bg-primary hover:bg-terracotta-dark text-primary-foreground px-7 py-3 min-h-[44px] rounded-xl font-semibold",
                   })}
                 >
                   View Senggigi Menu
@@ -51,7 +52,7 @@ export default function SenggigiPage() {
                     variant: "outline",
                     size: "lg",
                     className:
-                      "border-sand/60 bg-transparent text-cream hover:bg-brown hover:text-white px-7 py-3 min-h-[44px] rounded-xl font-semibold",
+                      "border-border bg-card text-foreground hover:bg-sandstone px-7 py-3 min-h-[44px] rounded-xl font-semibold",
                   })}
                 >
                   Reserve at Senggigi
@@ -59,7 +60,7 @@ export default function SenggigiPage() {
               </div>
             </div>
 
-            <div className="md:col-span-5 relative aspect-[4/3] rounded-2xl overflow-hidden border border-brown/40">
+            <div className="md:col-span-5 relative aspect-[4/3] rounded-2xl overflow-hidden border border-border shadow-sm">
               <Image
                 src="/AMBIENT%20AND%20SPACE%20(17%20of%2084).jpg"
                 alt="Yessy Senggigi dining interior"
@@ -89,47 +90,46 @@ export default function SenggigiPage() {
         </div>
       </section>
 
-      <section className="py-14 sm:py-20 bg-surface-dark text-surface-dark-foreground">
+      <section className="py-14 sm:py-20 bg-secondary border-y border-border">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-10 sm:mb-12">
             <div>
-              <p className="text-surface-dark-muted text-xs sm:text-sm font-bold tracking-widest uppercase mb-2">
+              <p className="text-muted-foreground text-xs sm:text-sm font-bold tracking-widest uppercase mb-2">
                 House Favorites
               </p>
-              <h2 className="font-heading text-2xl sm:text-3xl md:text-4xl font-bold text-cream">
+              <h2 className="font-heading text-2xl sm:text-3xl md:text-4xl font-bold text-foreground">
                 Signature Senggigi Plates
               </h2>
             </div>
             <Link
               href="/menu-flipbook"
-              className="min-h-[44px] inline-flex items-center text-sand hover:text-white font-semibold text-sm underline underline-offset-4"
+              className="min-h-[44px] inline-flex items-center text-primary hover:underline font-semibold text-sm underline-offset-4"
             >
               See Full Senggigi Menu
             </Link>
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 sm:gap-6">
-            {bestSellers.map((item) => (
-              <div
-                key={item.name}
-                className="rounded-2xl overflow-hidden bg-darkbrown border border-brown/50 flex flex-col"
-              >
-                <div className="relative aspect-[4/3] w-full">
-                  <Image
-                    src={item.image}
-                    alt={item.name}
-                    fill
-                    className="object-cover"
-                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
-                  />
+            {bestSellers.map((item, i) => (
+              <ScrollReveal key={item.name} animation="fade-up" delay={i * 70}>
+                <div className="rounded-2xl overflow-hidden bg-card border border-border shadow-xs hover-lift flex flex-col h-full">
+                  <div className="relative aspect-[4/3] w-full overflow-hidden">
+                    <Image
+                      src={item.image}
+                      alt={item.name}
+                      fill
+                      className="object-cover transition-transform duration-500 ease-out hover:scale-105"
+                      sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
+                    />
+                  </div>
+                  <div className="p-5 flex items-baseline justify-between gap-3">
+                    <h3 className="font-heading font-bold text-card-foreground text-base sm:text-lg">
+                      {item.name}
+                    </h3>
+                    <span className="text-primary font-bold text-sm shrink-0">{item.price}</span>
+                  </div>
                 </div>
-                <div className="p-5 flex items-baseline justify-between gap-3">
-                  <h3 className="font-heading font-bold text-cream text-base sm:text-lg">
-                    {item.name}
-                  </h3>
-                  <span className="text-sand font-semibold text-sm shrink-0">{item.price}</span>
-                </div>
-              </div>
+              </ScrollReveal>
             ))}
           </div>
         </div>
@@ -152,7 +152,7 @@ export default function SenggigiPage() {
                 href="https://www.google.com/maps?q=Yessy+Cafe+Senggigi,+Senggigi,+Kec.+Batu+Layar,+Kabupaten+Lombok+Barat,+Nusa+Tenggara+Bar.+83355"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2.5 min-h-[44px] bg-primary hover:bg-brown text-primary-foreground px-6 py-3 rounded-xl font-semibold transition-colors"
+                className="inline-flex items-center gap-2.5 min-h-[44px] bg-primary hover:bg-terracotta-dark text-primary-foreground px-6 py-3 rounded-xl font-semibold transition-colors"
               >
                 <svg aria-hidden="true" className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path
@@ -166,7 +166,7 @@ export default function SenggigiPage() {
               </a>
             </div>
 
-            <div className="md:col-span-7 bg-card rounded-2xl p-3 shadow-sm border border-border">
+            <div className="md:col-span-7 bg-card rounded-2xl p-3 shadow-xs border border-border">
               <div className="rounded-xl overflow-hidden aspect-[16/10]">
                 <iframe
                   src="https://maps.google.com/maps?q=Yessy+Cafe+Senggigi,+Senggigi,+Kec.+Batu+Layar,+Kabupaten+Lombok+Barat,+Nusa+Tenggara+Bar.+83355&t=&z=15&ie=UTF8&iwloc=&output=embed"

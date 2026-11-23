@@ -139,22 +139,25 @@ Thank you!`;
 
   return (
     <div className="min-h-screen bg-background">
-      <section className="relative pt-20 pb-16 sm:pt-24 sm:pb-20 bg-surface-dark text-surface-dark-foreground overflow-hidden">
+      <section className="relative py-16 sm:py-20 bg-secondary border-b border-border overflow-hidden">
         <Image
           src="/AMBIENT AND SPACE (17 of 84).jpg"
           alt="Yessy dining tables prepared for reservation"
           fill
-          className="object-cover opacity-25"
+          className="object-cover opacity-15"
           sizes="100vw"
           priority
           fetchPriority="high"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-darkbrown via-darkbrown/70 to-darkbrown/60" />
+        <div className="absolute inset-0 bg-gradient-to-t from-secondary via-secondary/85 to-secondary/75" />
         <div className="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h1 className="font-heading text-3xl sm:text-5xl font-bold mb-4 tracking-tight text-cream">
+          <p className="text-muted-foreground font-bold tracking-widest uppercase mb-3 text-xs sm:text-sm animate-hero-reveal" style={{ animationDelay: "60ms" }}>
+            Table Booking
+          </p>
+          <h1 className="font-heading text-3xl sm:text-5xl font-bold mb-4 tracking-tight text-foreground animate-hero-reveal" style={{ animationDelay: "160ms" }}>
             Reserve a Table
           </h1>
-          <p className="text-surface-dark-muted text-sm sm:text-base max-w-xl mx-auto">
+          <p className="text-muted-foreground text-sm sm:text-base max-w-xl mx-auto animate-hero-reveal" style={{ animationDelay: "260ms" }}>
             Select your preferred Yessy location, date, and seating time below.
           </p>
         </div>
@@ -163,7 +166,7 @@ Thank you!`;
       <section className="py-12 sm:py-16">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           {submitted ? (
-            <div className="bg-card text-card-foreground p-8 sm:p-14 rounded-2xl shadow-lg border border-border text-center">
+            <div className="bg-card text-card-foreground p-8 sm:p-14 rounded-2xl shadow-sm border border-border text-center animate-fade-in">
               <div className="w-16 h-16 mx-auto mb-6 rounded-full border-2 border-primary flex items-center justify-center text-primary">
                 <svg aria-hidden="true" className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
@@ -181,13 +184,13 @@ Thank you!`;
                   href={generateWhatsAppMessage()}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center min-h-[44px] bg-primary hover:bg-brown text-primary-foreground px-8 py-3 rounded-xl text-sm font-semibold transition-colors"
+                  className="press inline-flex items-center justify-center min-h-[44px] bg-primary hover:bg-terracotta-dark text-primary-foreground px-8 py-3 rounded-xl text-sm font-semibold transition-colors"
                 >
                   Confirm via WhatsApp
                 </a>
                 <a
                   href={generateEmailLink()}
-                  className="inline-flex items-center justify-center min-h-[44px] border border-border bg-transparent hover:bg-muted text-card-foreground px-8 py-3 rounded-xl text-sm font-semibold transition-colors"
+                  className="press inline-flex items-center justify-center min-h-[44px] border border-border bg-secondary hover:bg-sandstone text-foreground px-8 py-3 rounded-xl text-sm font-semibold transition-colors"
                 >
                   Confirm via Email
                 </a>
@@ -205,7 +208,7 @@ Thank you!`;
             <form
               onSubmit={handleSubmit}
               noValidate
-              className="bg-card text-card-foreground p-6 sm:p-12 lg:p-16 rounded-2xl shadow-lg border border-border space-y-12"
+              className="bg-card text-card-foreground p-6 sm:p-12 lg:p-16 rounded-2xl shadow-sm border border-border space-y-12 animate-fade-in"
             >
               {errorCount > 0 && (
                 <div
@@ -232,7 +235,7 @@ Thank you!`;
                         className={cn(
                           "reservation-card relative text-left p-5 sm:p-6 border rounded-xl min-h-[44px]",
                           selected
-                            ? "border-primary bg-primary/10 shadow-sm"
+                            ? "border-primary bg-secondary shadow-xs"
                             : "border-border bg-transparent hover:border-primary/60"
                         )}
                       >
@@ -312,7 +315,7 @@ Thank you!`;
                               "press min-h-[44px] px-2 text-sm font-semibold rounded-xl border",
                               isSelected
                                 ? "bg-primary text-primary-foreground border-primary"
-                                : "bg-transparent text-card-foreground border-border hover:border-primary"
+                                : "bg-transparent text-card-foreground border-border hover:border-primary hover:bg-secondary/60"
                             )}
                           >
                             {slot}
@@ -449,7 +452,7 @@ Thank you!`;
                 <Button
                   type="submit"
                   size="lg"
-                  className="press bg-primary hover:bg-brown text-primary-foreground px-10 py-3 min-h-[48px] rounded-xl text-sm font-semibold tracking-wide"
+                  className="press bg-primary hover:bg-terracotta-dark text-primary-foreground px-10 py-3 min-h-[48px] rounded-xl text-sm font-semibold tracking-wide"
                 >
                   Review Reservation Request
                 </Button>

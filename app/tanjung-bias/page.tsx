@@ -2,6 +2,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { buttonVariants } from "@/components/ui/button";
 import { AmbientCarousel } from "@/components/ambient-carousel";
+import { ScrollReveal } from "@/components/scroll-reveal";
 
 const featuredGrill = {
   name: "Mix Seafood Platter",
@@ -19,24 +20,24 @@ const coastalDishes = [
 export default function TanjungBiasPage() {
   return (
     <div>
-      <section className="bg-surface-dark text-surface-dark-foreground py-16 sm:py-20 text-center">
+      <section className="bg-secondary border-b border-border py-16 sm:py-20 text-center">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <p className="text-surface-dark-muted font-bold tracking-widest uppercase mb-3 text-xs sm:text-sm">
+          <p className="text-muted-foreground font-bold tracking-widest uppercase mb-3 text-xs sm:text-sm animate-hero-reveal" style={{ animationDelay: "60ms" }}>
             Coastal Dining Experience
           </p>
-          <h1 className="font-heading text-3xl sm:text-4xl md:text-5xl font-bold mb-4 text-cream">
+          <h1 className="font-heading text-3xl sm:text-4xl md:text-5xl font-bold mb-4 text-foreground animate-hero-reveal" style={{ animationDelay: "160ms" }}>
             Yessy Tanjung Bias
           </h1>
-          <p className="text-surface-dark-muted text-base sm:text-lg max-w-2xl mx-auto mb-8 leading-relaxed">
+          <p className="text-muted-foreground text-base sm:text-lg max-w-2xl mx-auto mb-8 leading-relaxed animate-hero-reveal" style={{ animationDelay: "260ms" }}>
             Open-air seaside dining in Batu Layar featuring fresh coastal seafood, Lombok grilled fish, and Western plates.
           </p>
-          <div className="flex flex-col sm:flex-row gap-3 justify-center">
+          <div className="flex flex-col sm:flex-row gap-3 justify-center animate-hero-reveal" style={{ animationDelay: "360ms" }}>
             <Link
               href="/menu-flipbook-2"
               className={buttonVariants({
                 size: "lg",
                 className:
-                  "bg-primary hover:bg-brown text-primary-foreground px-7 py-3 min-h-[44px] rounded-xl font-semibold",
+                  "bg-primary hover:bg-terracotta-dark text-primary-foreground px-7 py-3 min-h-[44px] rounded-xl font-semibold",
               })}
             >
               Open Tanjung Bias Menu
@@ -47,7 +48,7 @@ export default function TanjungBiasPage() {
                 variant: "outline",
                 size: "lg",
                 className:
-                  "border-sand/60 bg-transparent text-cream hover:bg-brown hover:text-white px-7 py-3 min-h-[44px] rounded-xl font-semibold",
+                  "border-border bg-card text-foreground hover:bg-sandstone px-7 py-3 min-h-[44px] rounded-xl font-semibold",
               })}
             >
               Reserve at Tanjung Bias
@@ -71,72 +72,73 @@ export default function TanjungBiasPage() {
         </div>
       </section>
 
-      <section className="py-14 sm:py-20 bg-surface-dark text-surface-dark-foreground">
+      <section className="py-14 sm:py-20 bg-secondary border-y border-border">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="mb-10 sm:mb-12">
-            <p className="text-surface-dark-muted text-xs sm:text-sm font-bold tracking-widest uppercase mb-2">
+            <p className="text-muted-foreground text-xs sm:text-sm font-bold tracking-widest uppercase mb-2">
               Seafood From the Grill
             </p>
-            <h2 className="font-heading text-2xl sm:text-3xl md:text-4xl font-bold text-cream">
+            <h2 className="font-heading text-2xl sm:text-3xl md:text-4xl font-bold text-foreground">
               Tanjung Bias Favorites
             </h2>
           </div>
 
           <div className="grid lg:grid-cols-12 gap-6 items-stretch">
-            <div className="lg:col-span-6 rounded-2xl overflow-hidden bg-darkbrown border border-brown/50 flex flex-col">
-              <div className="relative aspect-[16/10] w-full">
-                <Image
-                  src={featuredGrill.image}
-                  alt={featuredGrill.name}
-                  fill
-                  className="object-cover"
-                  sizes="(max-width: 1024px) 100vw, 50vw"
-                />
-              </div>
-              <div className="p-6 flex-1 flex flex-col justify-between">
-                <div>
-                  <div className="flex items-baseline justify-between gap-4 mb-2">
-                    <h3 className="font-heading text-2xl font-bold text-cream">
-                      {featuredGrill.name}
-                    </h3>
-                    <span className="text-sand font-bold text-base shrink-0">
-                      {featuredGrill.price}
-                    </span>
-                  </div>
-                  <p className="text-surface-dark-muted text-sm sm:text-base leading-relaxed">
-                    {featuredGrill.description}
-                  </p>
+            <ScrollReveal animation="fade-left" className="lg:col-span-6 flex">
+              <div className="w-full rounded-2xl overflow-hidden bg-card border border-border shadow-xs hover-lift flex flex-col">
+                <div className="relative aspect-[16/10] w-full overflow-hidden">
+                  <Image
+                    src={featuredGrill.image}
+                    alt={featuredGrill.name}
+                    fill
+                    className="object-cover transition-transform duration-500 ease-out hover:scale-105"
+                    sizes="(max-width: 1024px) 100vw, 50vw"
+                  />
                 </div>
-              </div>
-            </div>
-
-            <div className="lg:col-span-6 grid grid-cols-1 gap-4">
-              {coastalDishes.map((item) => (
-                <div
-                  key={item.name}
-                  className="rounded-2xl overflow-hidden bg-darkbrown border border-brown/50 flex flex-col sm:flex-row"
-                >
-                  <div className="relative sm:w-44 aspect-[16/10] sm:aspect-auto shrink-0">
-                    <Image
-                      src={item.image}
-                      alt={item.name}
-                      fill
-                      className="object-cover"
-                      sizes="(max-width: 640px) 100vw, 176px"
-                    />
-                  </div>
-                  <div className="p-5 flex-1 flex flex-col justify-center">
-                    <div className="flex items-baseline justify-between gap-3 mb-1">
-                      <h3 className="font-heading font-bold text-cream text-lg">
-                        {item.name}
+                <div className="p-6 flex-1 flex flex-col justify-between">
+                  <div>
+                    <div className="flex items-baseline justify-between gap-4 mb-2">
+                      <h3 className="font-heading text-2xl font-bold text-card-foreground">
+                        {featuredGrill.name}
                       </h3>
-                      <span className="text-sand font-semibold text-sm shrink-0">
-                        {item.price}
+                      <span className="text-primary font-bold text-base shrink-0">
+                        {featuredGrill.price}
                       </span>
                     </div>
-                    <p className="text-surface-dark-muted text-sm">{item.note}</p>
+                    <p className="text-muted-foreground text-sm sm:text-base leading-relaxed">
+                      {featuredGrill.description}
+                    </p>
                   </div>
                 </div>
+              </div>
+            </ScrollReveal>
+
+            <div className="lg:col-span-6 grid grid-cols-1 gap-4">
+              {coastalDishes.map((item, i) => (
+                <ScrollReveal key={item.name} animation="fade-right" delay={i * 80}>
+                  <div className="rounded-2xl overflow-hidden bg-card border border-border shadow-xs hover-lift flex flex-col sm:flex-row h-full">
+                    <div className="relative sm:w-44 aspect-[16/10] sm:aspect-auto shrink-0 overflow-hidden">
+                      <Image
+                        src={item.image}
+                        alt={item.name}
+                        fill
+                        className="object-cover transition-transform duration-500 ease-out hover:scale-105"
+                        sizes="(max-width: 640px) 100vw, 176px"
+                      />
+                    </div>
+                    <div className="p-5 flex-1 flex flex-col justify-center">
+                      <div className="flex items-baseline justify-between gap-3 mb-1">
+                        <h3 className="font-heading font-bold text-card-foreground text-lg">
+                          {item.name}
+                        </h3>
+                        <span className="text-primary font-bold text-sm shrink-0">
+                          {item.price}
+                        </span>
+                      </div>
+                      <p className="text-muted-foreground text-sm">{item.note}</p>
+                    </div>
+                  </div>
+                </ScrollReveal>
               ))}
             </div>
           </div>
@@ -144,7 +146,7 @@ export default function TanjungBiasPage() {
           <div className="mt-10 text-center">
             <Link
               href="/menu-flipbook-2"
-              className="min-h-[44px] inline-flex items-center text-sand hover:text-white font-semibold text-sm underline underline-offset-4"
+              className="min-h-[44px] inline-flex items-center text-primary hover:underline font-semibold text-sm underline-offset-4"
             >
               Browse Complete Tanjung Bias Menu
             </Link>
@@ -166,7 +168,7 @@ export default function TanjungBiasPage() {
             </p>
           </div>
 
-          <div className="bg-card rounded-2xl p-3 shadow-sm border border-border">
+          <div className="bg-card rounded-2xl p-3 shadow-xs border border-border">
             <div className="rounded-xl overflow-hidden aspect-[16/9]">
               <iframe
                 src="https://maps.google.com/maps?q=Tanjung+Bias,+Batu+Layar,+Kabupaten+Lombok+Barat,+Nusa+Tenggara+Bar.&t=&z=15&ie=UTF8&iwloc=&output=embed"
@@ -186,7 +188,7 @@ export default function TanjungBiasPage() {
               href="https://www.google.com/maps?q=Tanjung+Bias,+Batu+Layar,+Kabupaten+Lombok+Barat,+Nusa+Tenggara+Bar."
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2.5 min-h-[44px] bg-primary hover:bg-brown text-primary-foreground px-7 py-3 rounded-xl font-semibold transition-colors"
+              className="inline-flex items-center gap-2.5 min-h-[44px] bg-primary hover:bg-terracotta-dark text-primary-foreground px-7 py-3 rounded-xl font-semibold transition-colors"
             >
               <svg aria-hidden="true" className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path

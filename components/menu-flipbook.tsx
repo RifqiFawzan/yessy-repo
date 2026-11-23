@@ -110,70 +110,92 @@ export function MenuFlipbook({
     return () => window.removeEventListener("keydown", handleKeyDown);
   }, [goToNext, goToPrev]);
 
-  const activePage = pages[currentPage];
-
   return (
     <div className="min-h-screen bg-background flex flex-col items-center justify-center px-4 py-8 sm:py-12">
-      <div className="text-center mb-6 sm:mb-8">
+      <div className="text-center mb-6 sm:mb-8 animate-hero-reveal">
         <h1 className="font-heading text-2xl sm:text-3xl md:text-4xl font-bold text-foreground mb-2">
           Yessy {locationName}
         </h1>
         <p className="text-muted-foreground text-sm sm:text-base">
-          Use the buttons or left/right arrow keys to browse pages.
+          Use the buttons or left/right arrow keys to flip pages.
         </p>
       </div>
 
       <div
         role="region"
         aria-label={`${locationName} menu booklet`}
-        className="w-full max-w-[420px] min-h-[520px] rounded-xl shadow-[0_12px_40px_rgba(59,42,34,0.18)] border border-border overflow-hidden flex flex-col"
+        className="w-full max-w-[420px] grid"
+        style={{ perspective: "1000px" }}
       >
-        {activePage.type === "cover" ? (
-          <div className="flex-1 min-h-[520px] flex items-center justify-center bg-gradient-to-br from-[#3b2a22] via-[#7a553a] to-[#3b2a22] p-6">
-            <div className="text-center text-[#f3e9d7] flex flex-col items-center">
-              <div className="relative w-48 h-48 sm:w-56 sm:h-56 mb-4">
-                <Image
-                  src="/logo trnz.png"
-                  alt="Yessy Restaurant Logo"
-                  fill
-                  className="object-contain"
-                  unoptimized={true}
-                  priority
-                />
-              </div>
-              <p className="text-base text-[#f3e9d7] tracking-widest uppercase font-semibold">
-                {coverSubtitle}
-              </p>
-              <div className="w-12 h-[2px] bg-[#d6bfa6] mx-auto my-5" />
-              <p className="text-sm text-[#d6bfa6] tracking-widest uppercase">
-                Est. 2005
-              </p>
+        {pages.map((page, index) => {
+          const isCurrent = index === currentPage;
+          const isBefore = index < currentPage;
+
+          return (
+            <div
+              key={index}
+              aria-hidden={!isCurrent}
+              className="[grid-area:1/1] w-full min-h-[520px] rounded-2xl shadow-[0_14px_38px_rgba(110,76,54,0.16)] border border-border overflow-hidden flex flex-col transition-all duration-500 ease-[cubic-bezier(0.23,1,0.32,1)]"
+              style={{
+                opacity: isCurrent ? 1 : 0,
+                transform: isCurrent
+                  ? "translateX(0) rotateY(0deg) rotateZ(0deg) scale(1)"
+                  : isBefore
+                    ? "translateX(-45%) rotateY(-10deg) rotateZ(-3deg) scale(0.92)"
+                    : "translateX(45%) rotateY(10deg) rotateZ(3deg) scale(0.92)",
+                zIndex: isCurrent ? 10 : 0,
+                pointerEvents: isCurrent ? "auto" : "none",
+              }}
+            >
+              {page.type === "cover" ? (
+                <div className="flex-1 min-h-[520px] flex items-center justify-center bg-gradient-to-br from-[#efe4d2] via-[#e7d7bf] to-[#efe4d2] p-6">
+                  <div className="text-center text-foreground flex flex-col items-center">
+                    <div className="relative w-48 h-48 sm:w-56 sm:h-56 mb-4">
+                      <Image
+                        src="/logo trnz.png"
+                        alt="Yessy Restaurant Logo"
+                        fill
+                        className="object-contain [filter:brightness(0.24)_sepia(0.35)_contrast(1.25)]"
+                        unoptimized={true}
+                        priority
+                      />
+                    </div>
+                    <p className="text-base text-foreground tracking-widest uppercase font-semibold">
+                      {coverSubtitle}
+                    </p>
+                    <div className="w-12 h-[2px] bg-primary mx-auto my-5" />
+                    <p className="text-sm text-muted-foreground font-semibold tracking-widest uppercase">
+                      Est. 2005
+                    </p>
+                  </div>
+                </div>
+              ) : page.type === "backcover" ? (
+                <div className="flex-1 min-h-[520px] flex items-center justify-center bg-gradient-to-br from-[#efe4d2] via-[#e7d7bf] to-[#efe4d2] p-6">
+                  <div className="text-center text-foreground">
+                    <h2 className="font-heading text-3xl font-bold tracking-wider mb-2">
+                      Thank You
+                    </h2>
+                    <p className="text-sm text-muted-foreground tracking-widest uppercase font-semibold">
+                      For dining with us
+                    </p>
+                    <div className="w-12 h-[2px] bg-primary mx-auto my-6" />
+                    <p className="text-sm text-foreground font-semibold tracking-widest uppercase">
+                      {backCoverLocation}
+                    </p>
+                  </div>
+                </div>
+              ) : (
+                <div className="flex-1 min-h-[520px] bg-gradient-to-br from-[#fffdf9] to-[#faf5ec]">
+                  <MenuPage
+                    category={page.category!}
+                    items={page.items!}
+                    pageNumber={page.pageNumber!}
+                  />
+                </div>
+              )}
             </div>
-          </div>
-        ) : activePage.type === "backcover" ? (
-          <div className="flex-1 min-h-[520px] flex items-center justify-center bg-gradient-to-br from-[#3b2a22] via-[#7a553a] to-[#3b2a22] p-6">
-            <div className="text-center text-[#f3e9d7]">
-              <h2 className="font-heading text-3xl font-bold tracking-wider mb-2">
-                Thank You
-              </h2>
-              <p className="text-sm text-[#f3e9d7] tracking-widest uppercase">
-                For dining with us
-              </p>
-              <div className="w-12 h-[2px] bg-[#d6bfa6] mx-auto my-6" />
-              <p className="text-sm text-[#d6bfa6] tracking-widest uppercase">
-                {backCoverLocation}
-              </p>
-            </div>
-          </div>
-        ) : (
-          <div className="flex-1 min-h-[520px] bg-gradient-to-br from-[#fdf8f0] to-[#f5ebe0]">
-            <MenuPage
-              category={activePage.category!}
-              items={activePage.items!}
-              pageNumber={activePage.pageNumber!}
-            />
-          </div>
-        )}
+          );
+        })}
       </div>
 
       <div className="flex items-center gap-4 mt-6 sm:mt-8">
@@ -181,7 +203,7 @@ export function MenuFlipbook({
           type="button"
           onClick={goToPrev}
           disabled={currentPage <= 0}
-          className="flex items-center justify-center min-w-[44px] min-h-[44px] rounded-full bg-surface-dark text-surface-dark-foreground disabled:opacity-40 hover:bg-brown hover:text-white transition-colors duration-150"
+          className="press flex items-center justify-center min-w-[44px] min-h-[44px] rounded-full bg-primary text-primary-foreground disabled:opacity-40 hover:bg-terracotta-dark transition-colors duration-150"
           aria-label="Previous page"
         >
           <svg aria-hidden="true" className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -197,7 +219,7 @@ export function MenuFlipbook({
           type="button"
           onClick={goToNext}
           disabled={currentPage >= totalPages - 1}
-          className="flex items-center justify-center min-w-[44px] min-h-[44px] rounded-full bg-surface-dark text-surface-dark-foreground disabled:opacity-40 hover:bg-brown hover:text-white transition-colors duration-150"
+          className="press flex items-center justify-center min-w-[44px] min-h-[44px] rounded-full bg-primary text-primary-foreground disabled:opacity-40 hover:bg-terracotta-dark transition-colors duration-150"
           aria-label="Next page"
         >
           <svg aria-hidden="true" className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
