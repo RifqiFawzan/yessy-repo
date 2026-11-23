@@ -3,7 +3,7 @@
 import { Suspense } from "react";
 import { MenuFlipbook, type MenuSection } from "@/components/menu-flipbook";
 
-const place1Menu: MenuSection[] = [
+const senggigiMenu: MenuSection[] = [
   {
     category: "Appetizers",
     items: [
@@ -33,9 +33,9 @@ const place1Menu: MenuSection[] = [
   {
     category: "Drinks",
     items: [
-      { name: "Signature Yessy Cocktail", description: "Our exclusive blend of tropical fruits and premium spirits", price: "IDR 125k" },
+      { name: "Signature Yessy Cocktail", description: "House blend of tropical fruits and spirits", price: "IDR 125k" },
       { name: "Fresh Pressed Juice", description: "Seasonal fruit juice, freshly squeezed to order", price: "IDR 45k" },
-      { name: "Artisan Coffee", description: "Single-origin coffee, brewed to perfection", price: "IDR 55k" },
+      { name: "Artisan Coffee", description: "Single-origin coffee brewed fresh", price: "IDR 55k" },
     ],
   },
 ];
@@ -45,15 +45,17 @@ export default function MenuFlipbookPage() {
     <Suspense
       fallback={
         <div className="min-h-screen bg-background flex items-center justify-center">
-          <p className="text-darkbrown text-lg font-medium">Loading menu...</p>
+          <p className="text-foreground text-lg font-medium">Loading Senggigi menu...</p>
         </div>
       }
     >
       <MenuFlipbook
-        menuData={place1Menu}
-        locationName="Place 1"
-        coverSubtitle="Fine Dining Experience"
+        menuData={senggigiMenu}
+        locationName="Senggigi"
+        coverSubtitle="Fine Dining & Grill"
         backCoverLocation="Senggigi, Lombok"
+        backHref="/senggigi"
+        backLabel="Back to Yessy Senggigi"
       />
     </Suspense>
   );

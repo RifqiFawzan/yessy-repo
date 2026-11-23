@@ -11,8 +11,8 @@ const karla = Karla({ subsets: ["latin"], variable: "--font-sans" });
 const geistMono = Geist_Mono({ subsets: ["latin"], variable: "--font-geist-mono" });
 
 export const metadata: Metadata = {
-  title: "Yessy Restaurant",
-  description: "Exceptional dining experience at Yessy. Two unique locations, two distinct menus.",
+  title: "Yessy Restaurant | Seafood & Western Cuisine in Lombok",
+  description: "Two dining spots in West Lombok: Yessy Senggigi and Yessy Tanjung Bias.",
 };
 
 export const viewport: Viewport = {
@@ -21,16 +21,25 @@ export const viewport: Viewport = {
   maximumScale: 5,
 };
 
+const themeInitScript = `(function(){try{var s=localStorage.getItem('yessy-theme');var d=s==='dark'||(!s&&window.matchMedia('(prefers-color-scheme: dark)').matches);if(d)document.documentElement.classList.add('dark');}catch(e){}})();`;
+
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
       lang="en"
+      suppressHydrationWarning
       data-scroll-behavior="smooth"
-      className={cn("h-full max-w-[100vw] overflow-x-hidden", "antialiased", karla.variable, playfair.variable, geistMono.variable, "font-sans")}
+      className={cn("h-full overflow-x-clip antialiased", karla.variable, playfair.variable, geistMono.variable, "font-sans")}
     >
-      <body className="min-h-full flex flex-col grain-overlay animate-page-load max-w-[100vw] overflow-x-hidden">
+      <head>
+        <script dangerouslySetInnerHTML={{ __html: themeInitScript }} />
+      </head>
+      <body className="min-h-full flex flex-col grain-overlay overflow-x-clip">
+        <a href="#main-content" className="skip-link">
+          Skip to main content
+        </a>
         <Navbar />
-        <main className="flex-1">
+        <main id="main-content" tabIndex={-1} className="flex-1 outline-none">
           <PageTransition>{children}</PageTransition>
         </main>
         <Footer />

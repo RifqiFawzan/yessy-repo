@@ -2,36 +2,52 @@ import Link from "next/link";
 
 export function Footer() {
   return (
-    <footer className="bg-darkbrown text-sand">
+    <footer className="bg-surface-dark text-surface-dark-muted border-t border-brown/40">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           <div>
-            <h3 className="font-heading text-2xl font-bold text-cream mb-4 tracking-[0.05em]">Yessy</h3>
-            <p className="text-sand/80 text-sm leading-relaxed">
-              Experience exceptional dining at Yessy. Two unique locations, two distinct menus, one unforgettable culinary journey.
+            <h2 className="font-heading text-2xl font-bold text-surface-dark-foreground mb-4 tracking-[0.04em]">
+              Yessy
+            </h2>
+            <p className="text-surface-dark-muted text-sm leading-relaxed max-w-sm">
+              Seafood and Western dining across two spots in West Lombok: Yessy Senggigi and coastal Yessy Tanjung Bias.
             </p>
           </div>
 
           <div>
-            <h4 className="font-heading text-lg font-semibold text-cream mb-4">Quick Links</h4>
-            <ul className="space-y-2">
+            <h3 className="font-heading text-lg font-semibold text-surface-dark-foreground mb-4">
+              Locations &amp; Pages
+            </h3>
+            <ul className="space-y-1">
               <li>
-                <Link href="/about" className="text-sand/80 hover:text-cream transition-colors duration-150 text-sm">
-                  About Us
+                <Link
+                  href="/about"
+                  className="inline-flex items-center min-h-[44px] text-surface-dark-muted hover:text-surface-dark-foreground transition-colors duration-150 text-sm"
+                >
+                  Our Story
                 </Link>
               </li>
               <li>
-                <Link href="/place1" className="text-sand/80 hover:text-cream transition-colors duration-150 text-sm">
-                  Place 1
+                <Link
+                  href="/senggigi"
+                  className="inline-flex items-center min-h-[44px] text-surface-dark-muted hover:text-surface-dark-foreground transition-colors duration-150 text-sm"
+                >
+                  Yessy Senggigi
                 </Link>
               </li>
               <li>
-                <Link href="/place2" className="text-sand/80 hover:text-cream transition-colors duration-150 text-sm">
-                  Place 2
+                <Link
+                  href="/tanjung-bias"
+                  className="inline-flex items-center min-h-[44px] text-surface-dark-muted hover:text-surface-dark-foreground transition-colors duration-150 text-sm"
+                >
+                  Yessy Tanjung Bias
                 </Link>
               </li>
               <li>
-                <Link href="/reservation" className="text-sand/80 hover:text-cream transition-colors duration-150 text-sm">
+                <Link
+                  href="/reservation"
+                  className="inline-flex items-center min-h-[44px] text-surface-dark-muted hover:text-surface-dark-foreground transition-colors duration-150 text-sm"
+                >
                   Make a Reservation
                 </Link>
               </li>
@@ -39,15 +55,25 @@ export function Footer() {
           </div>
 
           <div>
-            <h4 className="font-heading text-lg font-semibold text-cream mb-4">Contact</h4>
-            <ul className="space-y-2 text-sm text-sand/80">
+            <h3 className="font-heading text-lg font-semibold text-surface-dark-foreground mb-4">
+              Contact
+            </h3>
+            <ul className="space-y-1 text-sm text-surface-dark-muted">
               <li>
-                <a href="mailto:info@yessy.com" className="hover:text-cream transition-colors">
+                <a
+                  href="mailto:info@yessy.com"
+                  className="inline-flex items-center min-h-[44px] hover:text-surface-dark-foreground transition-colors"
+                >
                   info@yessy.com
                 </a>
               </li>
               <li>
-                <a href="https://wa.me/6281234567890" target="_blank" rel="noopener noreferrer" className="hover:text-cream transition-colors">
+                <a
+                  href="https://wa.me/6281234567890"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center min-h-[44px] hover:text-surface-dark-foreground transition-colors"
+                >
                   WhatsApp: +62 812-3456-7890
                 </a>
               </li>
@@ -55,7 +81,7 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="mt-10 pt-6 border-t border-brown/50 text-center text-sm text-sand/60">
+        <div className="mt-10 pt-6 border-t border-brown/50 text-center text-sm text-surface-dark-muted">
           <p>&copy; {new Date().getFullYear()} Yessy Restaurant. All rights reserved.</p>
         </div>
       </div>
