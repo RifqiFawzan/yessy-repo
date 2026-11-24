@@ -25,10 +25,11 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
       lang="en"
+      suppressHydrationWarning
       data-scroll-behavior="smooth"
       className={cn("h-full max-w-[100vw] overflow-x-hidden", "antialiased", karla.variable, playfair.variable, geistMono.variable, "font-sans")}
     >
-      <body className="min-h-full flex flex-col grain-overlay animate-page-load max-w-[100vw] overflow-x-hidden">
+      <body suppressHydrationWarning className="min-h-full flex flex-col grain-overlay animate-page-load max-w-[100vw] overflow-x-hidden">
         <Navbar />
         <main className="flex-1">
           <PageTransition>{children}</PageTransition>
