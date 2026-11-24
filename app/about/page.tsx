@@ -140,22 +140,22 @@ export default function About() {
         </div>
       </section>
 
-      <section className="py-12 sm:py-20 bg-background">
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="py-12 sm:py-20 sand-grain-surface border-y border-sand overflow-hidden">
+        <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <ScrollReveal animation="fade-up" className="text-center mb-10 sm:mb-14">
-            <p className="text-camel font-medium tracking-widest uppercase mb-3 text-sm">What Drives Us</p>
+            <p className="text-brown font-bold tracking-widest uppercase mb-3 text-sm">What Drives Us</p>
             <h2 className="font-heading text-2xl sm:text-3xl md:text-4xl font-bold text-darkbrown">Our Values</h2>
           </ScrollReveal>
 
           <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-6 sm:gap-8">
             {values.map((val, i) => (
               <ScrollReveal key={val.title} animation="scale-in" delay={i * 100}>
-                <div className="bg-white rounded-2xl p-6 sm:p-8 shadow-sm border border-sand/20 text-center hover:shadow-md hover:-translate-y-1 transition-all duration-300">
-                  <div className="w-14 h-14 bg-camel/10 rounded-2xl flex items-center justify-center mx-auto mb-5 text-camel">
+                <div className="bg-white/95 rounded-2xl p-6 sm:p-8 shadow-sm border border-sand/70 text-center hover:shadow-md hover:-translate-y-1 transition-all duration-300">
+                  <div className="w-14 h-14 bg-sand/35 rounded-2xl flex items-center justify-center mx-auto mb-5 text-brown">
                     {val.icon}
                   </div>
                   <h3 className="font-heading text-lg font-bold text-darkbrown mb-2">{val.title}</h3>
-                  <p className="text-brown/70 text-sm leading-relaxed">{val.description}</p>
+                  <p className="text-brown text-sm leading-relaxed">{val.description}</p>
                 </div>
               </ScrollReveal>
             ))}
