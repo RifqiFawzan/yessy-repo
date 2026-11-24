@@ -76,21 +76,21 @@ export default function About() {
 
             <ScrollReveal animation="fade-right" delay={200}>
               <div className="relative">
-                <div className="bg-[#dcc7ab]/55 border border-[#c9b092] rounded-3xl p-6 sm:p-8 md:p-10">
+                <div className="bg-[#e7d7c0]/55 border border-sand rounded-3xl p-6 sm:p-8 md:p-10">
                   <div className="grid grid-cols-2 gap-4 sm:gap-6">
-                    <div className="bg-[#f5ebd9] border border-[#c9b092] rounded-2xl p-4 sm:p-6 text-center shadow-sm hover:shadow-md transition-shadow duration-300">
+                    <div className="bg-[#fbf6ec] border border-sand rounded-2xl p-4 sm:p-6 text-center shadow-sm hover:shadow-md transition-shadow duration-300">
                       <p className="font-heading text-3xl sm:text-4xl font-bold text-brown">20+</p>
                       <p className="text-darkbrown text-xs sm:text-sm font-medium mt-1">Years Serving</p>
                     </div>
-                    <div className="bg-[#f5ebd9] border border-[#c9b092] rounded-2xl p-4 sm:p-6 text-center shadow-sm hover:shadow-md transition-shadow duration-300">
+                    <div className="bg-[#fbf6ec] border border-sand rounded-2xl p-4 sm:p-6 text-center shadow-sm hover:shadow-md transition-shadow duration-300">
                       <p className="font-heading text-3xl sm:text-4xl font-bold text-brown">2</p>
                       <p className="text-darkbrown text-xs sm:text-sm font-medium mt-1">Locations</p>
                     </div>
-                    <div className="bg-[#f5ebd9] border border-[#c9b092] rounded-2xl p-4 sm:p-6 text-center shadow-sm hover:shadow-md transition-shadow duration-300">
+                    <div className="bg-[#fbf6ec] border border-sand rounded-2xl p-4 sm:p-6 text-center shadow-sm hover:shadow-md transition-shadow duration-300">
                       <p className="font-heading text-3xl sm:text-4xl font-bold text-brown">100+</p>
                       <p className="text-darkbrown text-xs sm:text-sm font-medium mt-1">Menu Items</p>
                     </div>
-                    <div className="bg-[#f5ebd9] border border-[#c9b092] rounded-2xl p-4 sm:p-6 text-center shadow-sm hover:shadow-md transition-shadow duration-300">
+                    <div className="bg-[#fbf6ec] border border-sand rounded-2xl p-4 sm:p-6 text-center shadow-sm hover:shadow-md transition-shadow duration-300">
                       <p className="font-heading text-3xl sm:text-4xl font-bold text-brown">50k+</p>
                       <p className="text-darkbrown text-xs sm:text-sm font-medium mt-1">Happy Guests</p>
                     </div>
@@ -158,7 +158,7 @@ export default function About() {
                   className={val.featured ? "sm:col-span-2" : ""}
                 >
                   <article
-                    className={`rounded-2xl border border-[#c9b092] bg-[#f5ebd9] shadow-sm h-full ${
+                    className={`rounded-2xl border border-sand bg-[#fbf6ec] shadow-sm h-full ${
                       val.featured ? "p-6 sm:p-8" : "p-6"
                     }`}
                   >
@@ -166,7 +166,7 @@ export default function About() {
                       <span className="font-heading text-xl font-bold text-brown tabular-nums">
                         {val.number}
                       </span>
-                      <span className="h-px flex-1 bg-[#cbb293]" aria-hidden="true" />
+                      <span className="h-px flex-1 bg-sand" aria-hidden="true" />
                     </div>
                     <h3 className="font-heading text-xl font-bold text-darkbrown mb-2">
                       {val.title}
