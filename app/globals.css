@@ -334,10 +334,10 @@ html {
 .sand-grain-surface {
   position: relative;
   isolation: isolate;
-  background-color: #e8d8c3;
+  background-color: #e6d5bf;
   background-image:
-    radial-gradient(ellipse at 18% 15%, rgba(250, 243, 232, 0.65) 0%, transparent 55%),
-    radial-gradient(ellipse at 82% 85%, rgba(208, 180, 148, 0.45) 0%, transparent 55%);
+    radial-gradient(ellipse at 18% 15%, rgba(250, 243, 232, 0.55) 0%, transparent 55%),
+    radial-gradient(ellipse at 82% 85%, rgba(196, 165, 130, 0.45) 0%, transparent 55%);
 }
 
 .sand-grain-surface::before,
@@ -350,19 +350,19 @@ html {
 }
 
 .sand-grain-surface::before {
-  opacity: 0.38;
+  opacity: 0.58;
   mix-blend-mode: multiply;
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='sand-fine'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='1.15' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='matrix' values='0.55 0 0 0 0.25  0 0.42 0 0 0.16  0 0 0.28 0 0.08  0 0 0 1.35 -0.25'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23sand-fine)'/%3E%3C/svg%3E");
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='sand-grit'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.68' numOctaves='3' seed='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='matrix' values='0.45 0 0 0 0.25  0 0.34 0 0 0.16  0 0 0.22 0 0.08  0 0 0 2.6 -0.85'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23sand-grit)'/%3E%3C/svg%3E");
   background-repeat: repeat;
-  background-size: 180px 180px;
+  background-size: 200px 200px;
 }
 
 .sand-grain-surface::after {
-  opacity: 0.22;
-  mix-blend-mode: overlay;
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 240 240' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='sand-coarse'%3E%3CfeTurbulence type='turbulence' baseFrequency='0.45' numOctaves='2' seed='7' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23sand-coarse)'/%3E%3C/svg%3E");
+  opacity: 0.38;
+  mix-blend-mode: multiply;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 260 260' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='sand-pebbles'%3E%3CfeTurbulence type='turbulence' baseFrequency='0.34' numOctaves='2' seed='11' stitchTiles='stitch'/%3E%3CfeColorMatrix type='matrix' values='0.35 0 0 0 0.38  0 0.26 0 0 0.24  0 0 0.16 0 0.14  0 0 0 2.2 -0.95'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23sand-pebbles)'/%3E%3C/svg%3E");
   background-repeat: repeat;
-  background-size: 240px 240px;
+  background-size: 260px 260px;
 }
 
 .scroll-reveal-up,
