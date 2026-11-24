@@ -330,6 +330,29 @@ html {
   background-size: 256px 256px;
 }
 
+/* Warm Lombok coastal sand texture for Testimonials band */
+.sand-grain-surface {
+  position: relative;
+  isolation: isolate;
+  background-color: #e8d8c3;
+  background-image:
+    radial-gradient(ellipse at 18% 15%, rgba(250, 243, 232, 0.65) 0%, transparent 55%),
+    radial-gradient(ellipse at 82% 85%, rgba(208, 180, 148, 0.45) 0%, transparent 55%);
+}
+
+.sand-grain-surface::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  opacity: 0.15;
+  mix-blend-mode: multiply;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 220 220' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='sand'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.82' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='matrix' values='0.35 0 0 0 0.55  0 0.30 0 0 0.45  0 0 0.22 0 0.33  0 0 0 0.9 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23sand)'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+  background-size: 220px 220px;
+}
+
 .scroll-reveal-up,
 .scroll-reveal-down,
 .scroll-reveal-left,
