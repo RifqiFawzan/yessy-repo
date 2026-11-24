@@ -32,14 +32,12 @@ export default function Place1() {
           </p>
           <p className="text-sand text-base sm:text-lg mt-4">
             This is our{" "}
-            <a
-              href="/menu-flipbook?location=place1"
-              target="_blank"
-              rel="noopener noreferrer"
+            <Link
+              href="/menu-flipbook"
               className="inline-block font-bold text-cream underline decoration-camel/50 decoration-2 underline-offset-4 hover:decoration-camel hover:text-camel transition-all duration-200 ease-out"
             >
               Menu
-            </a>
+            </Link>
           </p>
         </div>
       </section>

@@ -404,21 +404,7 @@ html {
   transform: translate(0) scale(1);
 }
 
-/* Flipbook styles */
-.flipbook-container {
-  perspective: 1200px;
-}
-
-.flipbook {
-  margin: 0 auto;
-}
-
-.flipbook-page {
-  background: linear-gradient(135deg, #fdf8f0 0%, #f5ebe0 100%);
-  border: 1px solid #d6bfa6;
-  overflow: hidden;
-}
-
+/* Flipbook menu card typography & paper layout */
 .flipbook-page-inner {
   width: 100%;
   height: 100%;
@@ -428,58 +414,6 @@ html {
   box-sizing: border-box;
 }
 
-/* Cover */
-.flipbook-cover,
-.flipbook-backcover {
-  width: 100%;
-  height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: linear-gradient(135deg, #3b2a22 0%, #7a553a 50%, #3b2a22 100%);
-}
-
-.cover-content {
-  text-align: center;
-  color: #f3e9d7;
-}
-
-.cover-decoration {
-  font-size: 2rem;
-  color: #b08968;
-  margin-bottom: 16px;
-}
-
-.cover-title {
-  font-family: var(--font-heading);
-  font-size: 2.5rem;
-  font-weight: 700;
-  letter-spacing: 0.05em;
-  margin-bottom: 10px;
-}
-
-.cover-subtitle {
-  font-size: 1rem;
-  color: #d6bfa6;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-}
-
-.cover-line {
-  width: 50px;
-  height: 2px;
-  background: #b08968;
-  margin: 20px auto;
-}
-
-.cover-tagline {
-  font-size: 0.875rem;
-  color: #b08968;
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
-}
-
-/* Page header */
 .page-header {
   display: flex;
   align-items: center;
@@ -490,9 +424,9 @@ html {
 }
 
 .page-number {
-  font-size: 0.8rem;
-  color: #b08968;
-  font-weight: 600;
+  font-size: 0.85rem;
+  color: #7a553a;
+  font-weight: 700;
 }
 
 .page-category {
@@ -502,7 +436,6 @@ html {
   color: #3b2a22;
 }
 
-/* Menu items */
 .page-items {
   flex: 1;
   display: flex;
@@ -523,8 +456,9 @@ html {
 .page-item-header {
   display: flex;
   align-items: baseline;
+  gap: 6px;
   width: 100%;
-  margin-bottom: 2px;
+  margin-bottom: 3px;
 }
 
 .page-item-name {
@@ -537,8 +471,9 @@ html {
 
 .page-item-dots {
   flex: 1;
-  border-bottom: 2px dotted rgba(176, 137, 104, 0.4);
-  margin: 0 8px;
+  min-width: 16px;
+  border-bottom: 2px dotted rgba(122, 85, 58, 0.35);
+  margin: 0 4px;
   position: relative;
   top: -4px;
 }
@@ -546,46 +481,35 @@ html {
 .page-item-price {
   font-size: 0.9rem;
   font-weight: 700;
-  color: #b08968;
+  color: #7a553a;
   white-space: nowrap;
 }
 
 .page-item-desc {
-  font-size: 0.75rem;
+  font-size: 0.8rem;
   color: #7a553a;
-  line-height: 1.4;
+  line-height: 1.45;
   margin: 0;
-  padding-right: 40px;
 }
 
-/* Page turn shadow */
-.flipbook .stf__parent {
-  box-shadow: 0 12px 50px rgba(59, 42, 34, 0.18);
-}
-
-/* Mobile adjustments */
 @media (max-width: 480px) {
   .flipbook-page-inner {
-    padding: 18px 14px;
-  }
-
-  .cover-title {
-    font-size: 2rem;
+    padding: 20px 16px;
   }
 
   .page-category {
-    font-size: 1.1rem;
+    font-size: 1.125rem;
   }
 
   .page-item-name {
-    font-size: 0.85rem;
+    font-size: 0.9rem;
   }
 
   .page-item-desc {
-    font-size: 0.7rem;
+    font-size: 0.78rem;
   }
 
   .page-item-price {
-    font-size: 0.8rem;
+    font-size: 0.85rem;
   }
 }
