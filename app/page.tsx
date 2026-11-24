@@ -4,6 +4,29 @@ import { buttonVariants } from "@/components/ui/button";
 import { Testimonials } from "@/components/testimonials";
 import { ScrollReveal } from "@/components/scroll-reveal";
 
+const locationCards = [
+  {
+    href: "/senggigi",
+    image: "/AMBIENT%20AND%20SPACE%20(17%20of%2084).jpg",
+    alt: "Yessy Senggigi dining room",
+    badge: "Fine Dining & Grill",
+    title: "Yessy Senggigi",
+    description:
+      "Intimate indoor dining serving Wagyu steak, pan-seared salmon, risotto, and house classics.",
+    cta: "Visit Senggigi Page",
+  },
+  {
+    href: "/tanjung-bias",
+    image: "/AMBIENT%20AND%20SPACE%20(14%20of%2084).jpg",
+    alt: "Yessy Tanjung Bias seaside seating",
+    badge: "Coastal Seafood",
+    title: "Yessy Tanjung Bias",
+    description:
+      "Beachside tables with grilled whole fish, king prawns, calamari, and Lombok sambal dishes.",
+    cta: "Visit Tanjung Bias Page",
+  },
+];
+
 export default function Home() {
   return (
     <div>
@@ -90,72 +113,46 @@ export default function Home() {
             </p>
           </ScrollReveal>
 
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-8">
-            <ScrollReveal animation="fade-left" delay={80} className="lg:col-span-7 flex">
-              <Link
-                href="/senggigi"
-                className="w-full group rounded-2xl overflow-hidden bg-card border border-border hover-lift flex flex-col"
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
+            {locationCards.map((location, index) => (
+              <ScrollReveal
+                key={location.href}
+                animation={index === 0 ? "fade-left" : "fade-right"}
+                delay={(index + 1) * 80}
+                className="flex"
               >
-                <div className="relative aspect-[16/10] w-full overflow-hidden">
-                  <Image
-                    src="/AMBIENT%20AND%20SPACE%20(17%20of%2084).jpg"
-                    alt="Yessy Senggigi dining room"
-                    fill
-                    className="object-cover transition-transform duration-500 ease-out group-hover:scale-105"
-                    sizes="(max-width: 1024px) 100vw, 58vw"
-                  />
-                </div>
-                <div className="p-6 sm:p-8 flex-1 flex flex-col justify-between">
-                  <div>
-                    <span className="inline-block bg-secondary text-foreground text-xs font-bold tracking-wider uppercase px-3 py-1 rounded-full mb-3 border border-border">
-                      Senggigi
-                    </span>
-                    <h3 className="font-heading text-2xl sm:text-3xl font-bold text-foreground mb-2">
-                      Yessy Senggigi
-                    </h3>
-                    <p className="text-muted-foreground text-sm sm:text-base leading-relaxed max-w-lg mb-4">
-                      Intimate indoor dining serving Wagyu steak, pan-seared salmon, risotto, and house classics.
-                    </p>
+                <Link
+                  href={location.href}
+                  className="w-full group rounded-2xl overflow-hidden bg-card border border-border hover-lift flex flex-col"
+                >
+                  <div className="relative aspect-[16/10] w-full overflow-hidden">
+                    <Image
+                      src={location.image}
+                      alt={location.alt}
+                      fill
+                      className="object-cover transition-transform duration-500 ease-out group-hover:scale-105"
+                      sizes="(max-width: 768px) 100vw, 50vw"
+                    />
                   </div>
-                  <span className="inline-flex items-center min-h-[44px] text-primary font-semibold text-sm underline underline-offset-4">
-                    Visit Senggigi Page
-                  </span>
-                </div>
-              </Link>
-            </ScrollReveal>
-
-            <ScrollReveal animation="fade-right" delay={160} className="lg:col-span-5 flex">
-              <Link
-                href="/tanjung-bias"
-                className="w-full group rounded-2xl overflow-hidden bg-card border border-border hover-lift flex flex-col"
-              >
-                <div className="relative aspect-[16/10] lg:aspect-[4/3] w-full overflow-hidden">
-                  <Image
-                    src="/AMBIENT%20AND%20SPACE%20(14%20of%2084).jpg"
-                    alt="Yessy Tanjung Bias seaside seating"
-                    fill
-                    className="object-cover transition-transform duration-500 ease-out group-hover:scale-105"
-                    sizes="(max-width: 1024px) 100vw, 42vw"
-                  />
-                </div>
-                <div className="p-6 sm:p-8 flex-1 flex flex-col justify-between">
-                  <div>
-                    <span className="inline-block bg-secondary text-foreground text-xs font-bold tracking-wider uppercase px-3 py-1 rounded-full mb-3 border border-border">
-                      Coastal Dining
+                  <div className="p-6 sm:p-8 flex-1 flex flex-col justify-between">
+                    <div>
+                      <span className="inline-block bg-secondary text-foreground text-xs font-bold tracking-wider uppercase px-3 py-1 rounded-full mb-3 border border-border">
+                        {location.badge}
+                      </span>
+                      <h3 className="font-heading text-2xl sm:text-3xl font-bold text-foreground mb-2">
+                        {location.title}
+                      </h3>
+                      <p className="text-muted-foreground text-sm sm:text-base leading-relaxed mb-4">
+                        {location.description}
+                      </p>
+                    </div>
+                    <span className="inline-flex items-center min-h-[44px] text-primary font-semibold text-sm underline underline-offset-4">
+                      {location.cta}
                     </span>
-                    <h3 className="font-heading text-2xl sm:text-3xl font-bold text-foreground mb-2">
-                      Yessy Tanjung Bias
-                    </h3>
-                    <p className="text-muted-foreground text-sm sm:text-base leading-relaxed mb-4">
-                      Beachside tables with grilled whole fish, king prawns, calamari, and Lombok sambal dishes.
-                    </p>
                   </div>
-                  <span className="inline-flex items-center min-h-[44px] text-primary font-semibold text-sm underline underline-offset-4">
-                    Visit Tanjung Bias Page
-                  </span>
-                </div>
-              </Link>
-            </ScrollReveal>
+                </Link>
+              </ScrollReveal>
+            ))}
           </div>
         </div>
       </section>
