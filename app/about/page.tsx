@@ -48,15 +48,15 @@ export default function About() {
         </div>
       </section>
 
-      <section className="py-12 sm:py-20 bg-background">
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="py-12 sm:py-20 sand-grain-surface border-b border-[#cbb293] overflow-hidden">
+        <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid md:grid-cols-2 gap-10 sm:gap-16 items-center">
             <ScrollReveal animation="fade-left">
-              <p className="text-camel font-medium tracking-widest uppercase mb-3 text-sm">Who We Are</p>
+              <p className="text-brown font-bold tracking-widest uppercase mb-3 text-sm">Who We Are</p>
               <h2 className="font-heading text-2xl sm:text-3xl md:text-4xl font-bold text-darkbrown mb-6">
                 A Taste of the Sea, A Touch of the West
               </h2>
-              <div className="space-y-4 text-brown/80 leading-relaxed text-sm sm:text-base">
+              <div className="space-y-4 text-darkbrown/90 leading-relaxed text-sm sm:text-base">
                 <p>
                   Founded in 2005, Yessy Restaurant began as a small family dream — to bring the freshest seafood
                   and the finest Western dishes to the beautiful island of Lombok. What started as a single location
@@ -76,23 +76,23 @@ export default function About() {
 
             <ScrollReveal animation="fade-right" delay={200}>
               <div className="relative">
-                <div className="bg-gradient-to-br from-camel/20 to-sand/30 rounded-3xl p-6 sm:p-8 md:p-10">
+                <div className="bg-[#dcc7ab]/55 border border-[#c9b092] rounded-3xl p-6 sm:p-8 md:p-10">
                   <div className="grid grid-cols-2 gap-4 sm:gap-6">
-                    <div className="bg-white/80 backdrop-blur rounded-2xl p-4 sm:p-6 text-center shadow-sm hover:shadow-md transition-shadow duration-300">
-                      <p className="font-heading text-3xl sm:text-4xl font-bold text-camel">20+</p>
-                      <p className="text-brown/70 text-xs sm:text-sm mt-1">Years Serving</p>
+                    <div className="bg-[#f5ebd9] border border-[#c9b092] rounded-2xl p-4 sm:p-6 text-center shadow-sm hover:shadow-md transition-shadow duration-300">
+                      <p className="font-heading text-3xl sm:text-4xl font-bold text-brown">20+</p>
+                      <p className="text-darkbrown text-xs sm:text-sm font-medium mt-1">Years Serving</p>
                     </div>
-                    <div className="bg-white/80 backdrop-blur rounded-2xl p-4 sm:p-6 text-center shadow-sm hover:shadow-md transition-shadow duration-300">
-                      <p className="font-heading text-3xl sm:text-4xl font-bold text-camel">2</p>
-                      <p className="text-brown/70 text-xs sm:text-sm mt-1">Locations</p>
+                    <div className="bg-[#f5ebd9] border border-[#c9b092] rounded-2xl p-4 sm:p-6 text-center shadow-sm hover:shadow-md transition-shadow duration-300">
+                      <p className="font-heading text-3xl sm:text-4xl font-bold text-brown">2</p>
+                      <p className="text-darkbrown text-xs sm:text-sm font-medium mt-1">Locations</p>
                     </div>
-                    <div className="bg-white/80 backdrop-blur rounded-2xl p-4 sm:p-6 text-center shadow-sm hover:shadow-md transition-shadow duration-300">
-                      <p className="font-heading text-3xl sm:text-4xl font-bold text-camel">100+</p>
-                      <p className="text-brown/70 text-xs sm:text-sm mt-1">Menu Items</p>
+                    <div className="bg-[#f5ebd9] border border-[#c9b092] rounded-2xl p-4 sm:p-6 text-center shadow-sm hover:shadow-md transition-shadow duration-300">
+                      <p className="font-heading text-3xl sm:text-4xl font-bold text-brown">100+</p>
+                      <p className="text-darkbrown text-xs sm:text-sm font-medium mt-1">Menu Items</p>
                     </div>
-                    <div className="bg-white/80 backdrop-blur rounded-2xl p-4 sm:p-6 text-center shadow-sm hover:shadow-md transition-shadow duration-300">
-                      <p className="font-heading text-3xl sm:text-4xl font-bold text-camel">50k+</p>
-                      <p className="text-brown/70 text-xs sm:text-sm mt-1">Happy Guests</p>
+                    <div className="bg-[#f5ebd9] border border-[#c9b092] rounded-2xl p-4 sm:p-6 text-center shadow-sm hover:shadow-md transition-shadow duration-300">
+                      <p className="font-heading text-3xl sm:text-4xl font-bold text-brown">50k+</p>
+                      <p className="text-darkbrown text-xs sm:text-sm font-medium mt-1">Happy Guests</p>
                     </div>
                   </div>
                 </div>
