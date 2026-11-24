@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Button, buttonVariants } from "@/components/ui/button";
+import { buttonVariants } from "@/components/ui/button";
 import { ScrollReveal } from "@/components/scroll-reveal";
 
 const milestones = [
@@ -12,31 +12,25 @@ const milestones = [
 
 const values = [
   {
-    icon: (
-      <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 6.042A8.967 8.967 0 006 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 016 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 016-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0018 18a8.967 8.967 0 00-6 2.292m0-14.25v14.25" />
-      </svg>
-    ),
-    title: "Quality First",
-    description: "Every ingredient is carefully selected. Every dish is crafted with precision and care.",
+    number: "01",
+    title: "Fresh Catch & Honest Ingredients",
+    description:
+      "Daily seafood from Lombok fishermen, local spices, and hand-trimmed cuts prepared fresh for every service.",
+    featured: true,
   },
   {
-    icon: (
-      <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M15 19.128a9.38 9.38 0 002.625.372 9.337 9.337 0 004.121-.952 4.125 4.125 0 00-7.533-2.493M15 19.128v-.003c0-1.113-.285-2.16-.786-3.07M15 19.128v.106A12.318 12.318 0 018.624 21c-2.331 0-4.512-.645-6.374-1.766l-.001-.109a6.375 6.375 0 0111.964-3.07M12 6.375a3.375 3.375 0 11-6.75 0 3.375 3.375 0 016.75 0zm8.25 2.25a2.625 2.625 0 11-5.25 0 2.625 2.625 0 015.25 0z" />
-      </svg>
-    ),
-    title: "Family Tradition",
-    description: "A family-owned restaurant where every guest is treated like part of the family.",
+    number: "02",
+    title: "Family-Run Hospitality",
+    description:
+      "A family-owned kitchen where guests are welcomed personally and spice levels are adjusted to your table.",
+    featured: false,
   },
   {
-    icon: (
-      <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09zM18.259 8.715L18 9.75l-.259-1.035a3.375 3.375 0 00-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 002.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 002.455 2.456L21.75 6l-1.036.259a3.375 3.375 0 00-2.455 2.456zM16.894 20.567L16.5 21.75l-.394-1.183a2.25 2.25 0 00-1.423-1.423L13.5 18.75l1.183-.394a2.25 2.25 0 001.423-1.423l.394-1.183.394 1.183a2.25 2.25 0 001.423 1.423l1.183.394-1.183.394a2.25 2.25 0 00-1.423 1.423z" />
-      </svg>
-    ),
-    title: "Passion for Flavor",
-    description: "We blend the freshness of the sea with the heartiness of Western cuisine.",
+    number: "03",
+    title: "Lombok Grill Meets Western Table",
+    description:
+      "From whole grilled snapper and plecing kangkung to steaks and pasta, both menus cook side by side.",
+    featured: false,
   },
 ];
 
@@ -140,25 +134,50 @@ export default function About() {
         </div>
       </section>
 
-      <section className="py-12 sm:py-20 sand-grain-surface border-y border-sand overflow-hidden">
+      <section aria-labelledby="values-heading" className="py-14 sm:py-20 sand-grain-surface border-y border-[#cbb293] overflow-hidden">
         <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-          <ScrollReveal animation="fade-up" className="text-center mb-10 sm:mb-14">
-            <p className="text-brown font-bold tracking-widest uppercase mb-3 text-sm">What Drives Us</p>
-            <h2 className="font-heading text-2xl sm:text-3xl md:text-4xl font-bold text-darkbrown">Our Values</h2>
-          </ScrollReveal>
+          <div className="grid lg:grid-cols-12 gap-8 lg:gap-12 items-start">
+            <ScrollReveal animation="fade-left" className="lg:col-span-4">
+              <p className="text-brown font-bold tracking-widest uppercase mb-3 text-xs sm:text-sm">
+                What Drives Us
+              </p>
+              <h2 id="values-heading" className="font-heading text-2xl sm:text-3xl md:text-4xl font-bold text-darkbrown mb-4">
+                Our Values
+              </h2>
+              <p className="text-brown text-sm sm:text-base leading-relaxed">
+                Three kitchen commitments that guide how we source, cook, and host across both Lombok branches.
+              </p>
+            </ScrollReveal>
 
-          <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-6 sm:gap-8">
-            {values.map((val, i) => (
-              <ScrollReveal key={val.title} animation="scale-in" delay={i * 100}>
-                <div className="bg-white/95 rounded-2xl p-6 sm:p-8 shadow-sm border border-sand/70 text-center hover:shadow-md hover:-translate-y-1 transition-all duration-300">
-                  <div className="w-14 h-14 bg-sand/35 rounded-2xl flex items-center justify-center mx-auto mb-5 text-brown">
-                    {val.icon}
-                  </div>
-                  <h3 className="font-heading text-lg font-bold text-darkbrown mb-2">{val.title}</h3>
-                  <p className="text-brown text-sm leading-relaxed">{val.description}</p>
-                </div>
-              </ScrollReveal>
-            ))}
+            <div className="lg:col-span-8 grid sm:grid-cols-2 gap-5 sm:gap-6">
+              {values.map((val, i) => (
+                <ScrollReveal
+                  key={val.title}
+                  animation="fade-up"
+                  delay={i * 90}
+                  className={val.featured ? "sm:col-span-2" : ""}
+                >
+                  <article
+                    className={`rounded-2xl border border-[#c9b092] bg-[#f5ebd9] shadow-sm h-full ${
+                      val.featured ? "p-6 sm:p-8" : "p-6"
+                    }`}
+                  >
+                    <div className="flex items-center gap-3 mb-3">
+                      <span className="font-heading text-xl font-bold text-brown tabular-nums">
+                        {val.number}
+                      </span>
+                      <span className="h-px flex-1 bg-[#cbb293]" aria-hidden="true" />
+                    </div>
+                    <h3 className="font-heading text-xl font-bold text-darkbrown mb-2">
+                      {val.title}
+                    </h3>
+                    <p className="text-brown text-sm sm:text-base leading-relaxed">
+                      {val.description}
+                    </p>
+                  </article>
+                </ScrollReveal>
+              ))}
+            </div>
           </div>
         </div>
       </section>
