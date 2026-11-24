@@ -1,9 +1,8 @@
 import Link from "next/link";
 import Image from "next/image";
-import { Button, buttonVariants } from "@/components/ui/button";
+import { buttonVariants } from "@/components/ui/button";
 import { ScrollReveal } from "@/components/scroll-reveal";
 import { AmbientCarousel } from "@/components/ambient-carousel";
-import { MenuCarousel } from "@/components/menu-carousel";
 
 const bestSellers = [
   { name: "King Prawn", image: "/King Prawn.jpg", price: "IDR 350k" },
@@ -37,15 +36,22 @@ export default function TanjungBias() {
         </div>
       </section>
 
-      <section className="py-10 sm:py-14 bg-background">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <ScrollReveal animation="fade-up" className="text-center mb-6 sm:mb-8">
-            <h2 className="font-heading text-xl sm:text-2xl md:text-3xl font-bold text-darkbrown mb-2">The Ambiance</h2>
-            <p className="text-brown/60 text-sm sm:text-base">A glimpse inside Yessy Tanjung Bias</p>
+      <section aria-labelledby="tanjung-bias-ambiance-heading" className="py-12 sm:py-16 sand-grain-surface border-b border-sand overflow-hidden">
+        <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <ScrollReveal animation="fade-up" className="flex flex-col sm:flex-row sm:items-end justify-between gap-2 mb-6 sm:mb-8">
+            <div>
+              <p className="text-brown text-xs sm:text-sm font-bold tracking-widest uppercase mb-1.5">
+                By the Shore
+              </p>
+              <h2 id="tanjung-bias-ambiance-heading" className="font-heading text-2xl sm:text-3xl font-bold text-darkbrown">
+                The Ambiance
+              </h2>
+            </div>
+            <p className="text-brown text-sm sm:text-base">A glimpse inside Yessy Tanjung Bias</p>
           </ScrollReveal>
 
           <ScrollReveal animation="scale-in">
-            <AmbientCarousel />
+            <AmbientCarousel label="Yessy Tanjung Bias ambiance gallery" />
           </ScrollReveal>
         </div>
       </section>
