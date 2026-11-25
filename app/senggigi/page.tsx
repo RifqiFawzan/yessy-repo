@@ -128,8 +128,22 @@ export default function Place1() {
               <span className="block w-12 h-px bg-sand"></span>
             </div>
             <h2 className="font-heading text-2xl sm:text-3xl md:text-4xl font-bold text-darkbrown mb-3">Visit Us</h2>
-            <p className="text-brown/70 max-w-lg mx-auto leading-relaxed text-sm sm:text-base">
+            <p className="text-brown/70 max-w-lg mx-auto leading-relaxed text-sm sm:text-base mb-2">
               Senggigi, Kec. Batu Layar, Kabupaten Lombok Barat, Nusa Tenggara Bar. 83355
+            </p>
+            <p className="text-xs text-brown/60 uppercase tracking-widest font-semibold mb-3">
+              Open Daily: 11:00 AM – 9:00 PM WITA
+            </p>
+            <p className="text-sm font-medium text-darkbrown">
+              WhatsApp / Contact:{" "}
+              <a
+                href="https://wa.me/6282314110396"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-camel hover:text-brown font-semibold underline underline-offset-4 transition-colors"
+              >
+                +62 823-1411-0396
+              </a>
             </p>
           </ScrollReveal>
 

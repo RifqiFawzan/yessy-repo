@@ -39,7 +39,10 @@ export function Footer() {
           </div>
 
           <div>
-            <h4 className="font-heading text-lg font-semibold text-cream mb-4">Contact</h4>
+            <h4 className="font-heading text-lg font-semibold text-cream mb-4">Contact & Hours</h4>
+            <p className="text-xs text-sand/70 mb-3 tracking-wide">
+              Open Daily: 11:00 AM – 9:00 PM WITA
+            </p>
             <ul className="space-y-2 text-sm text-sand/80">
               <li>
                 <a href="mailto:info@yessy.com" className="hover:text-cream transition-colors">
@@ -47,8 +50,13 @@ export function Footer() {
                 </a>
               </li>
               <li>
-                <a href="https://wa.me/6281234567890" target="_blank" rel="noopener noreferrer" className="hover:text-cream transition-colors">
-                  WhatsApp: +62 812-3456-7890
+                <a href="https://wa.me/6282314110396" target="_blank" rel="noopener noreferrer" className="hover:text-cream transition-colors">
+                  Senggigi: +62 823-1411-0396
+                </a>
+              </li>
+              <li>
+                <a href="https://wa.me/6281230186226" target="_blank" rel="noopener noreferrer" className="hover:text-cream transition-colors">
+                  Tanjung Bias: +62 812-3018-6226
                 </a>
               </li>
             </ul>
